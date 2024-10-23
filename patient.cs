@@ -1,23 +1,19 @@
-class patient{
-    private int patientID;
+public class Patient
+{
     private string name;
-    private string username;
-    private string password;
     private string email;
     private string phone;
 
-    public patient(string n, string u, string p, string e){
-        name = n;
-        username = u;
-        password = p;
-        email = e;
+    public Patient(string name, string email)
+    {
+        this.name = name;
+        this.email = email;
     }
     
-    public patient(string n, string u, string p, string e, string ph){
-        name = n;
-        username = u;
-        password = p;
-        email = e;
-        phone = ph;
+    public Patient(string name, string email, string phone)
+    {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
     }
 }
