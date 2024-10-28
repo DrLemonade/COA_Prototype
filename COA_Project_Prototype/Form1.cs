@@ -16,5 +16,10 @@ namespace COA_Project_Prototype
         {
             InitializeComponent();
         }
+
+        private void logInButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
