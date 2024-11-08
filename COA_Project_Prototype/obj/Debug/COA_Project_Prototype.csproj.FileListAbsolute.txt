@@ -8,3 +8,13 @@ C:\Users\altav\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj
 C:\Users\altav\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.csproj.CoreCompileInputs.cache
 C:\Users\altav\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.exe
 C:\Users\altav\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.pdb
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\bin\Debug\COA_Project_Prototype.exe.config
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\bin\Debug\COA_Project_Prototype.exe
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\bin\Debug\COA_Project_Prototype.pdb
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.csproj.AssemblyReference.cache
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.Form1.resources
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.Properties.Resources.resources
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.csproj.GenerateResource.cache
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.csproj.CoreCompileInputs.cache
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.exe
+C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.pdb
