@@ -105,31 +105,29 @@ public class EmployeeArray
         string result = "";
         for(int i = 0; i < employeeCount; i++)
             result += " " + employees[i];
-            
+
         return result;
     }
 }
 
 public abstract class Employee
 {
-    private string name;
-    private string username;
-    private string password;
-    private int index;
+    public int Index { get; private set; }
+
+    public string Name { get; private set; }
+
+    public string Username { get; private set; }
+
+    public string Passowrd { get; private set; }
+
 
     public Employee(string name, string username, string password, int index)
     {
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.index = index;
+        this.Name = name;
+        this.Username = username;
+        this.Passowrd = password;
+        this.Index = index;
     }
-
-    public string getName() { return name; }
-
-    public string getUsername() { return name; }
-
-    public string getPassowrd() { return name; }
     public double compareTo(Employee other, bool byName)
     {
         if(byName)
