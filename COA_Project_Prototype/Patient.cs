@@ -2,20 +2,20 @@ using System;
 
 public class Patient
 {
-    private string name;
-    private string email;
-    private string phone;
+    public string Name { get; private set; }
+    public string Email { get; private set; }
+    public string Phone { get; private set; }
 
     public Patient(string name, string email)
     {
-        this.name = name;
-        this.email = email;
+        this.Name = name;
+        this.Email = email;
     }
     
     public Patient(string name, string email, string phone)
     {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
+        this.Name = name;
+        this.Email = email;
+        this.Phone = phone;
     }
 }

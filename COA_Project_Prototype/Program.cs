@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COA_ProjectPrototype;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,12 @@ namespace COA_Project_Prototype
         [STAThread]
         static void Main()
         {
+            EmployeeArray employeeArray = new EmployeeArray();
+            employeeArray.ReadCSV();
+            employeeArray.Sort(false);
+            Console.WriteLine(employeeArray.ToString());
+            employeeArray.LogIn("jdoe01").ToString();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
