@@ -11,58 +11,13 @@ using CsvHelper.Configuration;
 namespace COA_ProjectPrototype {
     public class EmployeeArray : DynamicArray <Employee>
     {
-        private Employee[] employees;
-        public int EmployeeCount { get; private set; }
-
-        public EmployeeArray()
-        {
-            employees = new Employee[10];
-            EmployeeCount = 0;
-        }
-
-        public void Add(Employee employee)
-        {
-            Insert(employee, EmployeeCount);
-        }
-
-        public void Insert(Employee employee, int index)
-        {
-            if (index < 0 || index > EmployeeCount)
-                throw new IndexOutOfRangeException();
-            if (EmployeeCount == employees.Length)
-                DoubleBackingArray();
-            for (int i = EmployeeCount; i > index; i--)
-                employees[i + 1] = employees[1];
-            employees[index] = employee;
-            EmployeeCount++;
-        }
-
-        private void DoubleBackingArray()
-        {
-            Employee[] newArray = new Employee[employees.Length * 2];
-            for (int i = 0; i < employees.Length; i++) {
-                newArray[i] = employees[i];
-            }
-            employees = newArray;
-        }
-
-        public void Remove(int index)
-        {
-            if (index < 0 || index > EmployeeCount)
-                throw new IndexOutOfRangeException();
-
-            for (int i = index + 1; i < EmployeeCount; i++)
-                employees[i - 1] = employees[i];
-
-            employees[EmployeeCount] = null;
-            EmployeeCount--;
-        }
+        public EmployeeArray() : base(new Employee[10], 0){}
 
         public void Sort(bool byName)
         {
-            Sort(0, EmployeeCount - 1, byName);
-            for(int i = 0; i < EmployeeCount; i++)
-                employees[i].Index = i;
+            Sort(0, ElementCount - 1, byName);
+            for(int i = 0; i < ElementCount; i++)
+                Elements[i].Index = i;
         }
 
         private void Sort(int startIndex, int pivotIndex, bool byName)
@@ -74,10 +29,10 @@ namespace COA_ProjectPrototype {
             int j = startIndex;
             while (j <= pivotIndex)
             {
-                if (employees[j].CompareTo(employees[pivotIndex], byName) <= 0)
+                if (Elements[j].CompareTo(Elements[pivotIndex], byName) <= 0)
                 {
                     i++;
-                    (employees[j], employees[i]) = (employees[i], employees[j]);
+                    (Elements[j], Elements[i]) = (Elements[i], Elements[j]);
                 }
                 j++;
             }
@@ -90,16 +45,16 @@ namespace COA_ProjectPrototype {
         {
             Sort(false);
             int min = 0;
-            int max = employees.Length - 1;
+            int max = Elements.Length - 1;
             while (max >= min)
             {
                 int mid = (min + max) / 2;
-                if (employees[mid] == null || String.Compare(username, employees[mid].Username, comparisonType: StringComparison.OrdinalIgnoreCase) < 0)
+                if (Elements[mid] == null || String.Compare(username, Elements[mid].Username, comparisonType: StringComparison.OrdinalIgnoreCase) < 0)
                     max = mid - 1;
-                else if (String.Compare(username, employees[mid].Username, comparisonType: StringComparison.OrdinalIgnoreCase) > 0)
+                else if (String.Compare(username, Elements[mid].Username, comparisonType: StringComparison.OrdinalIgnoreCase) > 0)
                     min = mid + 1;
-                else if (employees[mid].Username.Equals(username))
-                    return employees[mid];
+                else if (Elements[mid].Username.Equals(username))
+                    return Elements[mid];
             }
             return null;
         }
@@ -139,42 +94,24 @@ namespace COA_ProjectPrototype {
         {
             List<object> records = null;
             if (employee is Executive)
-            {
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "Executive" } };
-            }
             if (employee is DeptChair)
-            {
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "DeptChair" } };
-            }
             if (employee is ProviderManager)
-            {
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "ProviderManager" } };
-            }
             if (employee is Provider)
-            {
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "Provider" } };
-            }
             if (employee is Analyst)
-            {
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "Analyst" } };
-            }
             if (employee is SiteAdministrator)
-            {
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "SiteAdministrator" } };
-            }
             if (employee is DataAdministrator)
-            {
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "DataAdministrator" } };
-            }
             if (employee is TenantAdministrator)
-            {
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "TenantAdministrator" } };
-            }
 
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
-            {
-                HasHeaderRecord = false,
-            };
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
+
             using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/COA_employees_data.csv", FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
@@ -182,19 +119,6 @@ namespace COA_ProjectPrototype {
                 csv.NextRecord();
                 csv.WriteRecords(records);
             }
-        }
-
-        public Employee GetEmployee(int index) { return employees[index]; }
-
-        public override string ToString()
-        {
-            string result = "";
-            for (int i = 0; i < EmployeeCount; i++)
-            {
-                result += " \n" + employees[i].Index + " " + employees[i].ToString();
-            }
-
-            return result;
         }
     }
 

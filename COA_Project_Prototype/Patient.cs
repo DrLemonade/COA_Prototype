@@ -1,30 +1,79 @@
 using System;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace COA_ProjectPrototype {
-    public class PatientArray : DynamicArray
+    public class PatientArray : DynamicArray<Patient>
     {
-        public Patient[] patients;
-        public int PatientCount { get; private set; }
+        public PatientArray() : base(new Patient[10], 0){  }
 
-        public PatientArray()
+        public void Sort()
         {
-            patients = new Patient[10];
-            patientCount = 0;
+            Sort(0, ElementCount - 1);
+            for (int i = 0; i < ElementCount; i++)
+                Elements[i].Index = i;
         }
 
-        public void Add(Patient patient)
+        private void Sort(int startIndex, int pivotIndex)
         {
-            Insert(patient, patientCount);
+            if (startIndex >= pivotIndex)
+                return;
+
+            int i = startIndex - 1;
+            int j = startIndex;
+            while (j <= pivotIndex)
+            {
+                if (Elements[j].CompareTo(Elements[pivotIndex]) <= 0)
+                {
+                    i++;
+                    (Elements[j], Elements[i]) = (Elements[i], Elements[j]);
+                }
+                j++;
+            }
+
+            Sort(startIndex, i - 1);
+            Sort(i + 1, pivotIndex);
         }
 
-        public void Insert(Patient patient, )
+        public Patient FindPatient(string name)
+        {
+            Sort();
+            int min = 0;
+            int max = Elements.Length - 1;
+            while (max >= min)
+            {
+                int mid = (min + max) / 2;
+                if (Elements[mid] == null || String.Compare(name, Elements[mid].Name, comparisonType: StringComparison.OrdinalIgnoreCase) < 0)
+                    max = mid - 1;
+                else if (String.Compare(name, Elements[mid].Name, comparisonType: StringComparison.OrdinalIgnoreCase) > 0)
+                    min = mid + 1;
+                else if (Elements[mid].Name.Equals(name))
+                    return Elements[mid];
+            }
+            return null;
+        }
+
+        public PatientArray SubPatientArray(string input)
+        {
+            PatientArray array = new PatientArray();
+            for(int i = 0;i < ElementCount; i++)
+            {
+                if(Elements[i].ToString().Substring(0, input.Length) == input)
+                    array.Add(Elements[i]);
+            }
+
+            return array;
+        }
     }
 
     public class Patient
     {
-        public string Name { get; private set; }
-        public string Email { get; private set; }
-        public string Phone { get; private set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public int MRN { get; set; }
+        public double Balance { get; set; }
+
+        public int Index { get; set; }
 
         public Patient(string name, string email)
         {
@@ -32,11 +81,23 @@ namespace COA_ProjectPrototype {
             this.Email = email;
         }
         
-        public Patient(string name, string email, string phone)
+        public Patient(string name, string email, string phone, int mrn, double balance)
         {
             this.Name = name;
             this.Email = email;
             this.Phone = phone;
+            this.MRN = mrn;
+            this.Balance = balance;
+        }
+
+        public double CompareTo(Patient other)
+        {
+            return String.Compare(Name, other.Name, comparisonType: StringComparison.OrdinalIgnoreCase);
+        }
+
+        public override string ToString()
+        {
+            return Name + ": " + Email + ", " + Phone + ", " + Balance;
         }
     }
 }
