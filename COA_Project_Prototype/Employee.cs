@@ -9,7 +9,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 
 namespace COA_ProjectPrototype {
-    public class EmployeeArray
+    public class EmployeeArray : DynamicArray <Employee>
     {
         private Employee[] employees;
         public int EmployeeCount { get; private set; }
