@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COA_ProjectPrototype;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace COA_Project_Prototype
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-
+            
         }
 
     }
