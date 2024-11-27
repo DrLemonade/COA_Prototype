@@ -75,7 +75,7 @@ namespace COA_ProjectPrototype
         public double Balance { get; set; }
 
         public int Index { get; set; }
-        public EventArray events { get; set; } 
+        public CaseArray Cases { get; set; } 
 
         public Patient(string name, string email)
         {
@@ -92,9 +92,9 @@ namespace COA_ProjectPrototype
             Balance = balance;
         }
 
-        public void AddEvent(Event e)
+        public void AddEvent(Case e)
         {
-            events.Add(e);
+            Cases.Add(e);
         }
 
         public double CompareTo(Patient other)

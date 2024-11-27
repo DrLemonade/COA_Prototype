@@ -1,14 +1,16 @@
+using COA_Project_Prototype;
 using System;
 using System.Runtime.InteropServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace COA_ProjectPrototype 
+namespace COA_ProjectPrototype
 {
     public abstract class DynamicArray<T>
     {
         public T[] Elements { get; set; }
         public int ElementCount { get; private set; }
 
-        public DynamicArray (T[] elements, int elementCount)
+        public DynamicArray(T[] elements, int elementCount)
         {
             this.Elements = elements;
             this.ElementCount = elementCount;
@@ -52,7 +54,7 @@ namespace COA_ProjectPrototype
             ElementCount--;
         }
 
-        public T GetElement(int index) {  return Elements[index]; }
+        public T GetElement(int index) { return Elements[index]; }
 
         public override string ToString()
         {

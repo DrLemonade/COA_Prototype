@@ -1,10 +1,11 @@
-﻿using System;
+﻿using COA_Project_Prototype;
+using System;
 using System.Collections.Generic;
 namespace COA_ProjectPrototype
 {
-    public class EventArray : DynamicArray<Event>
+    public class CaseArray : DynamicArray<Case>
     {
-        public EventArray() : base(new Event[10], 0) { }
+        public CaseArray() : base(new Case[10], 0) { }
 
         public void Sort()
         {
@@ -32,24 +33,37 @@ namespace COA_ProjectPrototype
             Sort(i + 1, pivotIndex);
         }
     }
-    public class Event
+    public class Case
 	{
-		public int[,] Costs { get; set; }
 		public int Total { get; private set; }
+        public int TotalHours { get; set; }
+        public string Name { get; set; }
 		public DateTime StartDate { get; set; }
 		public DateTime EndDate { get; set; }
-        public Dictionary<string, DateTime> DaysOfOperation { get; set; }
+        public Dictionary<string, CostArray> Costs { get; private set; }
+        public Dictionary<string, DateTime> TimesOfOperation { get; private set; }
 
-		public Event(DateTime startDate, DateTime endDate)
+		public Case(string name, DateTime startDate, DateTime endDate)
 		{
-			Costs = new int[4, 6];
+            Name = name;
 			Total = 0;
 			StartDate = startDate;
 			EndDate = endDate;
-            DaysOfOperation = new Dictionary<string, DateTime>();
+            TotalHours = (endDate.Hour + endDate.DayOfYear * 24 + endDate.Year * 365 * 24) - (startDate.Hour + startDate.DayOfYear * 24 + startDate.Year * 365 * 24);
+            Costs = new Dictionary<string, CostArray>();
+            TimesOfOperation = new Dictionary<string, DateTime>();
 		}
 
-		public double GetCost(int location, int costType) { return Costs[location, costType]; }
+		public Cost GetCost(string location, string value, CostSortType type) 
+        {
+            CostArray costs;
+            if(Costs.TryGetValue(location, out costs))
+            {
+                costs.Sort(type);
+                return costs.Find(value, type);
+            }
+            return default;
+        }
 
 		public void SetCost(int location, int costType, int value)
 		{
@@ -63,7 +77,7 @@ namespace COA_ProjectPrototype
 				Total += cost;
 		}
 
-		public int CompareTo(Event other)
+		public int CompareTo(Case other)
 		{
 			int total = 0;
 			total += (StartDate.DayOfYear + StartDate.Year * 365) - (other.StartDate.DayOfYear + other.StartDate.Year * 365);
