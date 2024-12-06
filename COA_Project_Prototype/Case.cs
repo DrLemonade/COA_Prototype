@@ -1,18 +1,20 @@
 ﻿using COA_Project_Prototype;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 namespace COA_ProjectPrototype
 {
     public class CaseArray : DynamicArray<Case>
     {
         public CaseArray() : base(new Case[10], 0) { }
 
-        public void Sort()
+        public void Sort(CaseSortType type)
         {
-            Sort(0, ElementCount - 1);
+            Sort(0, ElementCount - 1, type);
         }
 
-        private void Sort(int startIndex, int pivotIndex)
+        private void Sort(int startIndex, int pivotIndex, CaseSortType type)
         {
             if (startIndex >= pivotIndex)
                 return;
@@ -21,7 +23,7 @@ namespace COA_ProjectPrototype
             int j = startIndex;
             while (j <= pivotIndex)
             {
-                if (Elements[j].CompareTo(Elements[pivotIndex]) <= 0)
+                if (Elements[j].CompareTo(Elements[pivotIndex], type) <= 0)
                 {
                     i++;
                     (Elements[j], Elements[i]) = (Elements[i], Elements[j]);
@@ -29,78 +31,115 @@ namespace COA_ProjectPrototype
                 j++;
             }
 
-            Sort(startIndex, i - 1);
-            Sort(i + 1, pivotIndex);
+            Sort(startIndex, i - 1, type);
+            Sort(i + 1, pivotIndex, type);
         }
     }
     public class Case
 	{
 		public int Total { get; private set; }
-        public int TotalHours { get; set; }
         public string Name { get; set; }
 		public DateTime StartDate { get; set; }
 		public DateTime EndDate { get; set; }
+        public CostSortType SortType { get; private set; }
         public Dictionary<string, CostArray> Costs { get; private set; }
-        public Dictionary<string, DateTime> TimesOfOperation { get; private set; }
+        public Dictionary<string, DateTime> TimesOfOperationStart { get; private set; }
+        public Dictionary<string, DateTime> TimesOfOperationEnd { get; private set; }
 
-		public Case(string name, DateTime startDate, DateTime endDate)
+        public Case(string name, DateTime startDate, DateTime endDate)
 		{
             Name = name;
 			Total = 0;
 			StartDate = startDate;
 			EndDate = endDate;
-            TotalHours = (endDate.Hour + endDate.DayOfYear * 24 + endDate.Year * 365 * 24) - (startDate.Hour + startDate.DayOfYear * 24 + startDate.Year * 365 * 24);
             Costs = new Dictionary<string, CostArray>();
-            TimesOfOperation = new Dictionary<string, DateTime>();
-		}
+            TimesOfOperationStart = new Dictionary<string, DateTime>();
+            TimesOfOperationEnd = new Dictionary<string, DateTime>();
+        }
 
-		public Cost GetCost(string location, string value, CostSortType type) 
+		public Cost GetCost(string location, string value) 
         {
-            CostArray costs;
-            if(Costs.TryGetValue(location, out costs))
-            {
-                costs.Sort(type);
-                return costs.Find(value, type);
-            }
+            CostArray costArray;
+            if(Costs.TryGetValue(location, out costArray))
+                return costArray.Find(value, SortType);
+
             return default;
         }
 
-		public void SetCost(int location, int costType, int value)
+		public void AddCost(string location, Cost cost)
 		{
-			Costs[location, costType] = value;
-			UpdateTotal();
+            CostArray costArray;
+            if (Costs.TryGetValue(location, out costArray))
+            {
+                costArray.Add(cost);
+                costArray.Sort(SortType);
+                Costs.Remove(location);
+                Costs.Add(location, costArray);
+            }
+            else
+            {
+                costArray = new CostArray();
+                costArray.Add(cost);
+                costArray.Sort(SortType);
+                Costs.Add(location, costArray);
+            }
+            UpdateTotal();
 		}
+
+        public void RemoveCost(string location, int index)
+        {
+            CostArray costArray;
+            if (Costs.TryGetValue(location, out costArray))
+                costArray.Remove(index);
+            UpdateTotal(); 
+        }
 
 		public void UpdateTotal()
 		{
-			foreach (int cost in Costs)
-				Total += cost;
-		}
+            int total = 0;
+            foreach (KeyValuePair<string, CostArray> costArray in Costs)
+                for(int i = 0; i < costArray.Value.ElementCount; i++)
+                    total += costArray.Value.GetElement(i).CostAmount;
 
-		public int CompareTo(Case other)
+            Total = total;
+        }
+
+        public void UpdateSortType(CostSortType type)
+        {
+            SortType = type;
+            foreach (KeyValuePair<string, CostArray> costArray in Costs)
+                costArray.Value.Sort(SortType);
+        }
+
+        // TODO: Add Operation Start/End Time
+
+        public int CompareTo(Case other, CaseSortType type)
 		{
-			int total = 0;
-			total += (StartDate.DayOfYear + StartDate.Year * 365) - (other.StartDate.DayOfYear + other.StartDate.Year * 365);
-            total += (EndDate.DayOfYear + EndDate.Year * 365) - (other.EndDate.DayOfYear + other.EndDate.Year * 365);
-			return total/2;
+            if(type == CaseSortType.Name)
+                return String.Compare(Name, other.Name, comparisonType: StringComparison.OrdinalIgnoreCase);
+            if (type == CaseSortType.StartDate)
+                return (StartDate.DayOfYear + StartDate.Year * 365) - (other.StartDate.DayOfYear + other.StartDate.Year * 365);
+            if (type == CaseSortType.EndDate)
+                return (EndDate.DayOfYear + EndDate.Year * 365) - (other.EndDate.DayOfYear + other.EndDate.Year * 365);
+            if (type == CaseSortType.AvgDate)
+            {
+                int total = 0;
+                total += (StartDate.DayOfYear + StartDate.Year * 365) - (other.StartDate.DayOfYear + other.StartDate.Year * 365);
+                total += (EndDate.DayOfYear + EndDate.Year * 365) - (other.EndDate.DayOfYear + other.EndDate.Year * 365);
+                return total / 2;
+            }
+            if (type == CaseSortType.Total)
+                return Total - other.Total;
+            return 0;
         }
 	}
 
-    public enum Locations : ushort
+    public enum CaseSortType
     {
-        EmergencyRoom = 0,
-        OperatingRoom = 1,
-        IntenciveCareDept = 2,
-        GeneralWard = 3
-    }
-
-    public enum CostType : ushort
-    {
-        Labor = 0,
-        Drugs = 1,
-        Laboratory = 2,
-        Equipment = 3,
-        Radiology = 4,
-        Other = 5
+        Name,
+        StartDate,
+        EndDate,
+        AvgDate,
+        Total
     }
 }

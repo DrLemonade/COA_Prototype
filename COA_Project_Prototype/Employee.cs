@@ -267,7 +267,7 @@ namespace COA_ProjectPrototype
 
     public enum EmployeeSortType 
     {
-        Name = 0,
-        Username = 1
+        Name,
+        Username
     }
 }

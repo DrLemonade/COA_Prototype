@@ -156,6 +156,11 @@ namespace COA_Project_Prototype
                 return (IssueDate.DayOfYear + IssueDate.Year * 365) - (other.IssueDate.DayOfYear + other.IssueDate.Year * 365);
             return 0;
         }
+
+        public override string ToString()
+        {
+            return Name + ": " + CostType + ", " + CostCatagory + ", ¥" + CostAmount + ", " + IssueDate.ToString();
+        }
     }
 
     public enum CostSortType : ushort
