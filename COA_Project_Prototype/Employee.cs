@@ -93,7 +93,8 @@ namespace COA_ProjectPrototype
                         case "Analyst": record = new Analyst(name, username, password, i); break;
                         case "SiteAdministrator": record = new SiteAdministrator(name, username, password, i); break;
                         case "DataAdministrator": record = new DataAdministrator(name, username, password, i); break;
-                        case "TenantAdministrator": record = new TenantAdministrator(name, csv.GetField("username"), password, i); break;
+                        case "TenantAdministrator": record = new TenantAdministrator(name, username, password, i); break;
+                        default: record = new OtherEmployee(name, username, password, i, csv.GetField("employee_type")); break;
                     };
                     Add(record);
                 }
@@ -119,6 +120,8 @@ namespace COA_ProjectPrototype
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "DataAdministrator" } };
             if (employee is TenantAdministrator)
                 records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = "TenantAdministrator" } };
+            if (employee is OtherEmployee)
+                records = new List<object> { new { name = employee.Name, username = employee.Username, password = employee.Password, employee_type = ((OtherEmployee)employee).Type } };
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
 
@@ -157,6 +160,21 @@ namespace COA_ProjectPrototype
             if (type == EmployeeSortType.Username)
                 return String.Compare(Username, other.Username, comparisonType: StringComparison.OrdinalIgnoreCase);
             return 0;
+        }
+    }
+
+    public class OtherEmployee : Employee
+    {
+        public string Type { get; set; }
+
+        public OtherEmployee(string name, string username, string password, int index, string type) : base(name, username, password, index)
+        {
+            Type = type;
+        }
+
+        public override string ToString()
+        {
+            return Name + ": " + Username + ", " + Password + ", " + Type;
         }
     }
 

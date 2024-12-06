@@ -132,7 +132,15 @@ namespace COA_ProjectPrototype
                 return Total - other.Total;
             return 0;
         }
-	}
+
+        public override string ToString()
+        {
+            string str = Name + ": " + StartDate.ToString() + " - " + EndDate.ToString() + ", ¥" + Total + "\n";
+            foreach(KeyValuePair<string, CostArray> costArray in Costs)
+                str += costArray.Value.ToString() + "\n";
+            return str;
+        }
+    }
 
     public enum CaseSortType
     {
