@@ -1,7 +1,7 @@
 using System;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace COA_ProjectPrototype 
-{
+namespace COA_ProjectPrototype {
     public class PatientArray : DynamicArray<Patient>
     {
         public PatientArray() : base(new Patient[10], 0){  }
@@ -67,7 +67,6 @@ namespace COA_ProjectPrototype
 
     public class Patient
     {
-        // Patient information
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
@@ -75,26 +74,20 @@ namespace COA_ProjectPrototype
         public double Balance { get; set; }
 
         public int Index { get; set; }
-        public EventArray events { get; set; } 
 
         public Patient(string name, string email)
         {
-            Name = name;
-            Email = email;
+            this.Name = name;
+            this.Email = email;
         }
         
         public Patient(string name, string email, string phone, int mrn, double balance)
         {
-            Name = name;
-            Email = email;
-            Phone = phone;
-            MRN = mrn;
-            Balance = balance;
-        }
-
-        public void AddEvent(Event e)
-        {
-            events.Add(e);
+            this.Name = name;
+            this.Email = email;
+            this.Phone = phone;
+            this.MRN = mrn;
+            this.Balance = balance;
         }
 
         public double CompareTo(Patient other)

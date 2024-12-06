@@ -73,7 +73,6 @@
   <ItemGroup>
     <Compile Include="DynamicArray.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="Event.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

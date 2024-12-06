@@ -8,8 +8,7 @@ using System.Threading;
 using CsvHelper;
 using CsvHelper.Configuration;
 
-namespace COA_ProjectPrototype 
-{
+namespace COA_ProjectPrototype {
     public class EmployeeArray : DynamicArray <Employee>
     {
         public EmployeeArray() : base(new Employee[10], 0){}

@@ -1,8 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace COA_ProjectPrototype 
-{
+namespace COA_ProjectPrototype {
     public abstract class DynamicArray<T>
     {
         public T[] Elements { get; set; }
