@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COA_Project_Prototype", "COA_Project_Prototype.csproj", "{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3F62C5F5-DE05-436D-B9E0-8E315C0C41FE}"
-	ProjectSection(SolutionItems) = preProject
-		Event.cs = Event.cs
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
