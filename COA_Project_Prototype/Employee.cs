@@ -73,7 +73,7 @@ namespace COA_ProjectPrototype
 
         public void ReadCSV()
         {
-            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/COA_employees_data.csv"))
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_user__202412232141.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
@@ -85,7 +85,7 @@ namespace COA_ProjectPrototype
                     string firstName = csv.GetField("user_first_name");
                     string lastName = csv.GetField("user_last_name");
                     string password = csv.GetField("password");
-                    switch (csv.GetField("employee_type"))
+                    switch (csv.GetField("user_type"))
                     {
                         case "E": record = new Executive(firstName, lastName, username, password, i); break;
                         case "DC": record = new DeptChair(firstName, lastName, username, password, i); break;

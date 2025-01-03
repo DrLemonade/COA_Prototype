@@ -72,7 +72,7 @@ namespace COA_ProjectPrototype
 
         public void ReadCSV()
         {
-            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/COA_employees_data.csv"))
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_patient__202412232142.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
@@ -81,7 +81,9 @@ namespace COA_ProjectPrototype
                 {
                     string firstName = csv.GetField("patient_first_name");
                     string lastName = csv.GetField("patient_last_name");
-                    DateTime dob = DateTime.ParseExact(csv.GetField("date_of_birth"), "yyyy/MM/dd", CultureInfo.InvariantCulture);
+                    DateTime dob;
+                    dob = DateTime.ParseExact(csv.GetField("date_of_birth"), "yyyy/MM/dd", CultureInfo.InvariantCulture);
+                    
                     string gender = csv.GetField("gender");
                     Patient record = new Patient(firstName, lastName, gender, dob, i);
                     Add(record);
@@ -151,7 +153,7 @@ namespace COA_ProjectPrototype
 
         public override string ToString()
         {
-            return FirstName + " " + LastName + ": " + Email + ", " + Phone + ", " + Balance;
+            return FirstName + " " + LastName + ": " + Index + ", " + Gender + ", " + DOB;
         }
     }
 }

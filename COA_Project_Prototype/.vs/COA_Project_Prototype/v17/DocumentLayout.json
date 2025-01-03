@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\nicoc\\documents\\github\\coa_prototype\\coa_project_prototype\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\nicoc\\documents\\github\\coa_prototype\\coa_project_prototype\\case.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\case.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:case.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\dynamicarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:dynamicarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,8 +23,12 @@
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\dynamicarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:dynamicarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\cost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,13 +59,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Case.cs",
               "DocumentMoniker": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Case.cs",
               "RelativeDocumentMoniker": "Case.cs",
               "ToolTip": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Case.cs",
               "RelativeToolTip": "Case.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAiwIsAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwIsAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-19T01:10:53.249Z",
               "IsPinned": true,
@@ -77,15 +77,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "DynamicArray.cs",
               "DocumentMoniker": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\DynamicArray.cs",
               "RelativeDocumentMoniker": "DynamicArray.cs",
               "ToolTip": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\DynamicArray.cs",
               "RelativeToolTip": "DynamicArray.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAuwDYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T07:53:05.772Z"
+              "WhenOpened": "2024-11-14T07:53:05.772Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -95,27 +96,27 @@
               "RelativeDocumentMoniker": "Patient.cs",
               "ToolTip": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Patient.cs",
               "RelativeToolTip": "Patient.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAQwFwAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAArwFQAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T00:29:49.77Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Employee.cs",
               "RelativeDocumentMoniker": "Employee.cs",
               "ToolTip": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Employee.cs",
               "RelativeToolTip": "Employee.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAkwIcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T00:29:49.665Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -128,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -140,15 +141,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\nicoc\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T22:02:32.046Z"
+              "WhenOpened": "2024-10-23T22:02:32.046Z",
+              "EditorCaption": ""
             }
           ]
         }
