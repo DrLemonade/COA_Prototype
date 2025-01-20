@@ -41,6 +41,10 @@ namespace COA_Project_Prototype
             Sort(i + 1, pivotIndex, type);
         }
 
+        /**
+         * Binary search based on a string value.
+         * CostSortType must be name, cost type, or cost catagory
+         */
         public Cost Find(string value, CostSortType type)
         {
             Sort(type);
@@ -70,6 +74,10 @@ namespace COA_Project_Prototype
             return null;
         }
 
+        /**
+         * Binary search based on a int value.
+         * CostSortType must be cost amount
+         */
         public Cost Find(int value, CostSortType type)
         {
             Sort(type);
@@ -95,6 +103,10 @@ namespace COA_Project_Prototype
             return null;
         }
 
+        /**
+         * Binary search based on a DateTime value.
+         * CostSortType must be issue date
+         */
         public Cost Find(DateTime value, CostSortType type)
         {
             Sort(type);
@@ -163,12 +175,12 @@ namespace COA_Project_Prototype
         }
     }
 
-    public enum CostSortType : ushort
+    public enum CostSortType
     {
-        Name = 0,
-        CostType = 1,
-        CostCatagory = 2,
-        CostAmount = 3,
+        Name,
+        CostType,
+        CostCatagory,
+        CostAmount,
         IssueDate
     }
 }
