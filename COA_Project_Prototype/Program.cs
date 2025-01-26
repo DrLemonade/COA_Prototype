@@ -15,6 +15,9 @@ namespace COA_Project_Prototype
         [STAThread]
         static void Main()
         {
+            PatientArray array = new PatientArray();
+            array.ReadCSV();
+            Console.WriteLine(array.ToString());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
