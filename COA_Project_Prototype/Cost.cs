@@ -1,6 +1,10 @@
 ﻿using COA_ProjectPrototype;
+using CsvHelper.Configuration;
+using CsvHelper;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
@@ -11,7 +15,11 @@ namespace COA_Project_Prototype
 {
     public class CostArray : DynamicArray<Cost>
     {
-        public CostArray(): base(new Cost[10], 0){  }
+        private string CaseID { get; set; }
+        public CostArray(string caseID) : base(new Cost[10], 0)
+        {
+            CaseID = caseID;
+        }
 
         public void Sort(CostSortType type)
         {
@@ -130,6 +138,44 @@ namespace COA_Project_Prototype
                 }
             }
             return null;
+        }
+
+        public void ReadCSV()
+        {
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_patient__202412232142.csv"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Read();
+                csv.ReadHeader();
+                for (int i = 0; csv.Read(); i++)
+                {
+                    string firstName = csv.GetField("patient_first_name");
+                    string lastName = csv.GetField("patient_last_name");
+                    DateTime dob;
+                    dob = new DateTime(Int32.Parse(csv.GetField("date_of_birth").Substring(0, 4)), Int32.Parse(csv.GetField("date_of_birth").Substring(5, 2)), Int32.Parse(csv.GetField("date_of_birth").Substring(8, 2)), 0, 0, 0);
+
+                    string gender = csv.GetField("gender");
+                    string patientID = csv.GetField("patient_id");
+
+                    Cost record = new Cost(firstName, lastName, gender, dob, patientID, i);
+                    Add(record);
+                }
+            }
+        }
+
+        public void AppendCSV(Patient patient)
+        {
+            List<object> records = new List<object> { new { patient_id = patient.PatientID, hospital_id = "H1", patient_first_name = patient.FirstName, patient_last_name = patient.LastName, date_of_birth = patient.DOB.ToString("yyyy-MM-dd"), gender = patient.Gender } };
+
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
+
+            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_patient__202412232142.csv", FileMode.Append))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer, config))
+            {
+                csv.NextRecord();
+                csv.WriteRecords(records);
+            }
         }
     }
     public class Cost
