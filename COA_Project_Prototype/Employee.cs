@@ -81,6 +81,8 @@ namespace COA_ProjectPrototype {
                 {
                     Employee record = null;
                     string username = csv.GetField("user_id");
+                    while(username.IndexOf(" ") > 0)
+                        username = username.Remove(username.IndexOf(" "));
                     string firstName = csv.GetField("user_first_name");
                     string lastName = csv.GetField("user_last_name");
                     string password = csv.GetField("password");

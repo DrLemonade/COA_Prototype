@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COA_ProjectPrototype;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,12 +20,16 @@ namespace COA_Project_Prototype
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-
+            Employee employee = Program.users.Find(usernameTextBox.Text, EmployeeSortType.Username);
+            if (employee.Password.Equals(passwordTextBox.Text))
+            {
+                Program.CurrentForm = new homepage();
+                this.Close();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

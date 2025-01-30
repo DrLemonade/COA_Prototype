@@ -36,5 +36,17 @@ namespace COA_Project_Prototype
         {
 
         }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new Form1();
+            this.Close();
+        }
+
+        private void patientsButton_Click(object sender, EventArgs e)
+        {
+            Program.CurrentForm = new PatientsList();
+            this.Close();
+        }
     }
 }

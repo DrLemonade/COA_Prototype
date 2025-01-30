@@ -9,19 +9,33 @@ namespace COA_Project_Prototype
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+
+        public static EmployeeArray users { get; set; }
+        public static PatientArray patients { get; set; }
+        public static Form CurrentForm { get; set; }
+
         [STAThread]
         static void Main()
         {
-            PatientArray array = new PatientArray();
-            array.ReadCSV();
-            Console.WriteLine(array.ToString());
-
+            users = new EmployeeArray();
+            patients = new PatientArray();
+            users.ReadCSV();
+            patients.ReadCSV();
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            CurrentForm = new Form1();
+            while (true)
+            {
+                try
+                {
+                    Application.Run(CurrentForm);
+                }
+                catch (ObjectDisposedException ex)
+                {
+                    break;
+                }
+            }
         }
     }
 }

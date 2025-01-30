@@ -187,19 +187,34 @@ namespace COA_ProjectPrototype
         public int Index {  get; set; }
 
         public Case(string caseID, string name, DateTime startDate, DateTime endDate, int index)
-		{
+        {
             CaseID = caseID;
             Name = name;
-			Total = 0;
-			StartDate = startDate;
-			EndDate = endDate;
+            Total = 0;
+            StartDate = startDate;
+            EndDate = endDate;
             Costs = new Dictionary<string, CostArray>();
             TimesOfOperationStart = new Dictionary<string, DateTime>();
             TimesOfOperationEnd = new Dictionary<string, DateTime>();
             Index = index;
+
+            CostArray tempArr = new CostArray(caseID);
+            tempArr.ReadCSV();
+
+            for (int i = 0; i < tempArr.ElementCount; i++)
+            {
+                if (Costs.TryGetValue(tempArr.GetElement(i).CostType, out CostArray arr))
+                    arr.Add(tempArr.GetElement(i));
+                else
+                {
+                    arr = new CostArray(CaseID);
+                    Costs.Add(tempArr.GetElement(i).CostType, arr);
+                    arr.Add(tempArr.GetElement(i));
+                }
+            }
         }
 
-		public Cost GetCost(string location, string value) 
+        public Cost GetCost(string location, string value) 
         {
             CostArray costArray;
             if(Costs.TryGetValue(location, out costArray))
@@ -220,7 +235,7 @@ namespace COA_ProjectPrototype
             }
             else
             {
-                costArray = new CostArray();
+                costArray = new CostArray(CaseID);
                 costArray.Add(cost);
                 costArray.Sort(SortType);
                 Costs.Add(location, costArray);

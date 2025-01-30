@@ -134,6 +134,8 @@ namespace COA_ProjectPrototype
                     Add(record);
                 }
             }
+
+            Sort(PatientSortType.Name);
         }
 
         public void AppendCSV(Patient patient)

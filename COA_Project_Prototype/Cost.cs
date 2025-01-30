@@ -142,23 +142,34 @@ namespace COA_Project_Prototype
 
         public void ReadCSV()
         {
-            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_patient__202412232142.csv"))
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_cost__202412091112.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
                 csv.ReadHeader();
                 for (int i = 0; csv.Read(); i++)
                 {
-                    string firstName = csv.GetField("patient_first_name");
-                    string lastName = csv.GetField("patient_last_name");
-                    DateTime dob;
-                    dob = new DateTime(Int32.Parse(csv.GetField("date_of_birth").Substring(0, 4)), Int32.Parse(csv.GetField("date_of_birth").Substring(5, 2)), Int32.Parse(csv.GetField("date_of_birth").Substring(8, 2)), 0, 0, 0);
+                    if (csv.GetField("case_id") == CaseID)
+                    {
+                        string name = csv.GetField("cost_name");
+                        string costType = csv.GetField("cost_type");
+                        string costCatagory = csv.GetField("cost_catagory");
+                        int quantity = 0;
+                        if (Int32.TryParse(csv.GetField("quantity"), out int result1))
+                            quantity = result1;
+                        int costAmount = 0;
+                        if (Double.TryParse(csv.GetField("duration"), out double result2))
+                            costAmount = (int)result2;
+                        int duration = 0;
+                        if (Int32.TryParse(csv.GetField("duration"), out int result3))
+                            duration = result3;
 
-                    string gender = csv.GetField("gender");
-                    string patientID = csv.GetField("patient_id");
+                        DateTime issueDate;
+                        issueDate = new DateTime(Int32.Parse(csv.GetField("issue_date").Substring(0, 4)), Int32.Parse(csv.GetField("issue_date").Substring(5, 2)), Int32.Parse(csv.GetField("issue_date").Substring(8, 2)), 0, 0, 0);
 
-                    Cost record = new Cost(firstName, lastName, gender, dob, patientID, i);
-                    Add(record);
+                        Cost record = new Cost(name, costType, costCatagory, quantity, costAmount, duration, issueDate, i);
+                        Add(record);
+                    }
                 }
             }
         }
@@ -169,7 +180,7 @@ namespace COA_Project_Prototype
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
 
-            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_patient__202412232142.csv", FileMode.Append))
+            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_cost__202412091112.csv", FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
             {
@@ -189,7 +200,7 @@ namespace COA_Project_Prototype
         public int DurationInHours { get; set; }
         public DateTime IssueDate { get; set; }
 
-        public Cost(string name, string costType, string costCatagory, int quantity, int costAmount, int durationInHours, DateTime issueDate)
+        public Cost(string name, string costType, string costCatagory, int quantity, int costAmount, int durationInHours, DateTime issueDate, int index)
         {
             Name = name;
             CostType = costType;
@@ -198,6 +209,7 @@ namespace COA_Project_Prototype
             CostAmount = costAmount;
             DurationInHours = durationInHours;
             IssueDate = issueDate;
+            Index = index;
         }
 
         public int CompareTo(Cost other, CostSortType type)
