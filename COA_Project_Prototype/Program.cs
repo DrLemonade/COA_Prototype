@@ -10,17 +10,20 @@ namespace COA_Project_Prototype
     internal static class Program
     {
 
-        public static EmployeeArray users { get; set; }
+        public static UserArray users { get; set; }
         public static PatientArray patients { get; set; }
+        public static EmployeeArray employees { get; set; }
         public static Form CurrentForm { get; set; }
 
         [STAThread]
         static void Main()
         {
-            users = new EmployeeArray();
+            users = new UserArray();
             patients = new PatientArray();
+            employees = new EmployeeArray();
             users.ReadCSV();
             patients.ReadCSV();
+            employees.ReadCSV();
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

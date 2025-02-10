@@ -54,3 +54,4 @@ C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\bin
 C:\Users\theha\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Proj.DB39C4AB.Up2Date
 C:\Users\altav\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.homepage.resources
 C:\Users\altav\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.PatientsList.resources
+C:\Users\altav\OneDrive\Documents\GitHub\COA_Prototype\COA_Project_Prototype\obj\Debug\COA_Project_Prototype.EmployeesList.resources

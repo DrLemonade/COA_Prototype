@@ -68,8 +68,8 @@ namespace COA_Project_Prototype
                         compareValue = Elements[mid].Name;
                     if (type == CostSortType.CostType)
                         compareValue = Elements[mid].CostType;
-                    if (type == CostSortType.CostCatagory)
-                        compareValue = Elements[mid].CostCatagory;
+                    if (type == CostSortType.CostCategory)
+                        compareValue = Elements[mid].CostCategory;
 
                     if (String.Compare(value, compareValue, comparisonType: StringComparison.OrdinalIgnoreCase) < 0)
                         max = mid - 1;
@@ -153,7 +153,7 @@ namespace COA_Project_Prototype
                     {
                         string name = csv.GetField("cost_name");
                         string costType = csv.GetField("cost_type");
-                        string costCatagory = csv.GetField("cost_catagory");
+                        string costCategory = csv.GetField("cost_category");
                         int quantity = 0;
                         if (Int32.TryParse(csv.GetField("quantity"), out int result1))
                             quantity = result1;
@@ -167,7 +167,7 @@ namespace COA_Project_Prototype
                         DateTime issueDate;
                         issueDate = new DateTime(Int32.Parse(csv.GetField("issue_date").Substring(0, 4)), Int32.Parse(csv.GetField("issue_date").Substring(5, 2)), Int32.Parse(csv.GetField("issue_date").Substring(8, 2)), 0, 0, 0);
 
-                        Cost record = new Cost(name, costType, costCatagory, quantity, costAmount, duration, issueDate, i);
+                        Cost record = new Cost(name, costType, costCategory, quantity, costAmount, duration, issueDate, i);
                         Add(record);
                     }
                 }
@@ -193,18 +193,18 @@ namespace COA_Project_Prototype
     {
         public string Name { get; set; }
         public string CostType { get; set; }
-        public string CostCatagory { get; set; }
+        public string CostCategory { get; set; }
         public int Index { get; set; }
         public int Quantity { get; set; }
         public int CostAmount { get; set; }
         public int DurationInHours { get; set; }
         public DateTime IssueDate { get; set; }
 
-        public Cost(string name, string costType, string costCatagory, int quantity, int costAmount, int durationInHours, DateTime issueDate, int index)
+        public Cost(string name, string costType, string costCategory, int quantity, int costAmount, int durationInHours, DateTime issueDate, int index)
         {
             Name = name;
             CostType = costType;
-            CostCatagory = costCatagory;
+            CostCategory = costCategory;
             Quantity = quantity;
             CostAmount = costAmount;
             DurationInHours = durationInHours;
@@ -218,8 +218,8 @@ namespace COA_Project_Prototype
                 return String.Compare(Name, other.Name, comparisonType: StringComparison.OrdinalIgnoreCase);
             if (type == CostSortType.CostType)
                 return String.Compare(CostType, other.CostType, comparisonType: StringComparison.OrdinalIgnoreCase);
-            if (type == CostSortType.CostCatagory)
-                return String.Compare(CostCatagory, other.CostCatagory, comparisonType: StringComparison.OrdinalIgnoreCase);
+            if (type == CostSortType.CostCategory)
+                return String.Compare(CostCategory, other.CostCategory, comparisonType: StringComparison.OrdinalIgnoreCase);
             if (type == CostSortType.CostAmount && CostAmount > other.CostAmount)
                 return CostAmount.CompareTo(other.CostAmount);
             if (type == CostSortType.IssueDate)
@@ -229,7 +229,7 @@ namespace COA_Project_Prototype
 
         public override string ToString()
         {
-            return Name + ": " + CostType + ", " + CostCatagory + ", ¥" + CostAmount + ", " + IssueDate.ToString();
+            return Name + ": " + CostType + ", " + CostCategory + ", ¥" + CostAmount + ", " + IssueDate.ToString();
         }
     }
 
@@ -237,7 +237,7 @@ namespace COA_Project_Prototype
     {
         Name,
         CostType,
-        CostCatagory,
+        CostCategory,
         CostAmount,
         IssueDate
     }

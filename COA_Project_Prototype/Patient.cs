@@ -101,13 +101,19 @@ namespace COA_ProjectPrototype
             return null;
         }
 
+        /**
+         * creates an array of patients that is a subsection based on a string
+         */
         public PatientArray SubPatientArray(string input)
         {
             PatientArray array = new PatientArray();
-            for(int i = 0;i < ElementCount; i++)
+            for(int i = 0; i < ElementCount; i++)
             {
-                if(Elements[i].ToString().Substring(0, input.Length) == input)
-                    array.Add(Elements[i]);
+                for(int j = 0; j < Elements[i].ToString().Length - input.Length - 1; j++)
+                {
+                    if (Elements[i].ToString().Substring(j, input.Length) == input)
+                        array.Add(Elements[i]);
+                }
             }
 
             return array;

@@ -75,6 +75,13 @@
     <Compile Include="Cost.cs" />
     <Compile Include="DynamicArray.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeesList.Designer.cs">
+      <DependentUpon>EmployeesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EmployeesList.resx">
+      <DependentUpon>EmployeesList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

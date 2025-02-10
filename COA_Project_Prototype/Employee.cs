@@ -1,24 +1,26 @@
+﻿using COA_ProjectPrototype;
+using CsvHelper.Configuration;
+using CsvHelper;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Threading;
-using System.Xml.Linq;
-using CsvHelper;
-using CsvHelper.Configuration;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace COA_ProjectPrototype {
-    public class EmployeeArray : DynamicArray <Employee>
+namespace COA_Project_Prototype
+{
+    public class EmployeeArray : DynamicArray<Employee>
     {
-        public EmployeeArray() : base(new Employee[10], 0){}
+        public EmployeeArray() : base(new Employee[10], 0) { }
+
 
         public void Sort(EmployeeSortType type)
         {
             Sort(0, ElementCount - 1, type);
-            for(int i = 0; i < ElementCount; i++)
+            for (int i = 0; i < ElementCount; i++)
                 Elements[i].Index = i;
         }
 
@@ -43,6 +45,10 @@ namespace COA_ProjectPrototype {
             Sort(i + 1, pivotIndex, type);
         }
 
+        /**
+         * Binary search based on a string value.
+         * PatientSortType must be name or patientID
+         */
         public Employee Find(string value, EmployeeSortType type)
         {
             Sort(type);
@@ -54,10 +60,14 @@ namespace COA_ProjectPrototype {
                 if (Elements[mid] != null)
                 {
                     string compareValue = "";
+                    if (type == EmployeeSortType.EmployeeID)
+                        compareValue = Elements[mid].EmployeeID;
                     if (type == EmployeeSortType.Name)
                         compareValue = Elements[mid].LastName + Elements[mid].FirstName;
-                    if (type == EmployeeSortType.Username)
-                        compareValue = Elements[mid].Username;
+                    if (type == EmployeeSortType.Specialization)
+                        compareValue = Elements[mid].Specialization;
+                    if (type == EmployeeSortType.EmployeeType)
+                        compareValue = Elements[mid].EmployeeType;
 
                     if (String.Compare(value, compareValue, comparisonType: StringComparison.OrdinalIgnoreCase) < 0)
                         max = mid - 1;
@@ -70,64 +80,54 @@ namespace COA_ProjectPrototype {
             return null;
         }
 
+        /**
+         * creates an array of patients that is a subsection based on a string
+         */
+        public EmployeeArray SubEmployeeArray(string input)
+        {
+            EmployeeArray array = new EmployeeArray();
+            for (int i = 0; i < ElementCount; i++)
+            {
+                for (int j = 0; j < Elements[i].ToString().Length - input.Length - 1; j++)
+                {
+                    if (Elements[i].ToString().Substring(j, input.Length) == input)
+                        array.Add(Elements[i]);
+                }
+            }
+
+            return array;
+        }
+
         public void ReadCSV()
         {
-            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_user__202412232141.csv"))
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_staff__202412232144.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
                 csv.ReadHeader();
-                for(int i = 0;  csv.Read(); i++)
+                for (int i = 0; csv.Read(); i++)
                 {
-                    Employee record = null;
-                    string username = csv.GetField("user_id");
-                    while(username.IndexOf(" ") > 0)
-                        username = username.Remove(username.IndexOf(" "));
-                    string firstName = csv.GetField("user_first_name");
-                    string lastName = csv.GetField("user_last_name");
-                    string password = csv.GetField("password");
-                    switch (csv.GetField("user_type"))
-                    {
-                        case "E": record = new Executive(firstName, lastName, username, password, i); break;
-                        case "DC": record = new DeptChair(firstName, lastName, username, password, i); break;
-                        case "PM": record = new ProviderManager(firstName, lastName, username, password, i); break;
-                        case "P": record = new Provider(firstName, lastName, username, password, i); break;
-                        case "A": record = new Analyst(firstName, lastName, username, password, i); break;
-                        case "SA": record = new SiteAdministrator(firstName, lastName, username, password, i); break;
-                        case "DA": record = new DataAdministrator(firstName, lastName, username, password, i); break;
-                        case "TA": record = new TenantAdministrator(firstName, lastName, username, password, i); break;
-                        default: record = new OtherEmployee(firstName, lastName, username, password, i, csv.GetField("user_type")); break;
-                    };
+                    string employeeID = csv.GetField("staff_id");
+                    string firstName = csv.GetField("staff_first_name");
+                    string lastName = csv.GetField("staff_last_name");
+                    string specialization = csv.GetField("specialization");
+                    string employeeType = csv.GetField("employee_type");
+
+                    Employee record = new Employee(employeeID, firstName, lastName, specialization, employeeType, i);
                     Add(record);
                 }
             }
+
+            Sort(EmployeeSortType.Name);
         }
 
         public void AppendCSV(Employee employee)
         {
-            List<object> records = null;
-            if (employee is Executive)
-                records = new List<object> { new { user_id = employee.Username, hospital_id = "H1", user_first_name = employee.FirstName, employee_type = "E", password = employee.Password } };
-            if (employee is DeptChair)
-                records = new List<object> { new { user_id = employee.Username, hospital_id = "H1", user_first_name = employee.FirstName, employee_type = "DC", password = employee.Password } };
-            if (employee is ProviderManager)
-                records = new List<object> { new { user_id = employee.Username, hospital_id = "H1", user_first_name = employee.FirstName, employee_type = "PM", password = employee.Password } };
-            if (employee is Provider)
-                records = new List<object> { new { user_id = employee.Username, hospital_id = "H1", user_first_name = employee.FirstName, employee_type = "P", password = employee.Password } };
-            if (employee is Analyst)
-                records = new List<object> { new { user_id = employee.Username, hospital_id = "H1", user_first_name = employee.FirstName, employee_type = "A", password = employee.Password } };
-            if (employee is SiteAdministrator)
-                records = new List<object> { new { user_id = employee.Username, hospital_id = "H1", user_first_name = employee.FirstName, employee_type = "SA", password = employee.Password } };
-            if (employee is DataAdministrator)
-                records = new List<object> { new { user_id = employee.Username, hospital_id = "H1", user_first_name = employee.FirstName, employee_type = "DA", password = employee.Password } };
-            if (employee is TenantAdministrator)
-                records = new List<object> { new { user_id   = employee.Username, hospital_id = "H1", user_first_name = employee.FirstName, employee_type = "TA", password = employee.Password } };
-            if (employee is OtherEmployee)
-                records = new List<object> { new { user_id = employee.Username, hospital_id = "H1", user_first_name = employee.FirstName, employee_type = ((OtherEmployee)employee).Type, password = employee.Password } };
+            List<object> records = new List<object> { new { staff_id = employee.EmployeeID, hospital_id = "H1", department_id = "", staff_first_name = employee.FirstName, staff_last_name = employee.LastName, specialization = employee.Specialization, employee_type = employee.EmployeeType } };
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
 
-            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_user__202412232141.csv", FileMode.Append))
+            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_staff__202412232144.csv", FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
             {
@@ -137,159 +137,46 @@ namespace COA_ProjectPrototype {
         }
     }
 
-    public abstract class Employee
+    public class Employee
     {
-        public int Index { get; set; }
-
+        public string EmployeeID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Specialization {  get; set; }
+        public string EmployeeType { get; set; }
+        public int Index { get; set; }
 
-        public string Username { get; set; }
-
-        public string Password { get; set; }
-
-
-        public Employee(string firstName, string lastName, string username, string password, int index)
+        public Employee(string employeeID, string firstName, string lastName, string specialization, string employeeType, int index) 
         {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Username = username;
-            this.Password = password;
-            this.Index = index;
+            EmployeeID = employeeID;
+            FirstName = firstName;
+            LastName = lastName;
+            Specialization = specialization;
+            EmployeeType = employeeType;
+            Index = index;
         }
-        public double CompareTo(Employee other, EmployeeSortType type)
+
+        public int CompareTo(Employee other, EmployeeSortType type)
         {
+            if (type == EmployeeSortType.EmployeeID)
+                return String.Compare(EmployeeID, other.EmployeeID, comparisonType: StringComparison.OrdinalIgnoreCase);
             if (type == EmployeeSortType.Name)
                 return String.Compare(LastName + FirstName, other.LastName + other.FirstName, comparisonType: StringComparison.OrdinalIgnoreCase);
-            if (type == EmployeeSortType.Username)
-                return String.Compare(Username, other.Username, comparisonType: StringComparison.OrdinalIgnoreCase);
+            if (type == EmployeeSortType.Specialization)
+                return String.Compare(Specialization, other.Specialization, comparisonType: StringComparison.OrdinalIgnoreCase);
+            if (type == EmployeeSortType.EmployeeType)
+                return String.Compare(EmployeeType, other.EmployeeType, comparisonType: StringComparison.OrdinalIgnoreCase);
             return 0;
         }
-    }
-
-    public class OtherEmployee : Employee
-    {
-        public string Type { get; set; }
-
-        public OtherEmployee(string firstName, string lastName, string username, string password, int index, string type) : base(firstName, lastName, username, password, index)
-        {
-            Type = type;
-        }
 
         public override string ToString()
         {
-            return FirstName + " " + LastName + ": " + Username + ", " + Password + ", " + Type;
-        }
-    }
-
-    public class Executive : Employee
-    {
-        public Executive(string firstName, string lastName, string username, string password, int index) : base(firstName, lastName, username, password, index)
-        {
-
-        }
-
-        public override string ToString()
-        {
-            return FirstName + " " + LastName + ": " + Username + ", " + Password;
-        }
-    }
-
-    public class DeptChair : Employee
-    {
-        public DeptChair(string firstName, string lastName, string username, string password, int index) : base(firstName, lastName, username, password, index)
-        {
-
-        }
-
-        public override string ToString()
-        {
-            return FirstName + " " + LastName + ": " + Username + ", " + Password;
-        }
-    }
-
-    public class ProviderManager : Employee
-    {
-        public ProviderManager(string firstName, string lastName, string username, string password, int index) : base(firstName, lastName, username, password, index)
-        {
-
-        }
-
-        public override string ToString()
-        {
-            return FirstName + " " + LastName + ": " + Username + ", " + Password;
-        }
-    }
-
-
-    public class Provider : Employee
-    {
-        public Provider(string firstName, string lastName, string username, string password, int index) : base(firstName, lastName, username, password, index)
-        {
-
-        }
-
-        public override string ToString()
-        {
-            return FirstName + " " + LastName + ": " + Username + ", " + Password;
-        }
-    }
-
-    public class Analyst : Employee
-    {
-        public Analyst(string firstName, string lastName, string username, string password, int index) : base(firstName, lastName, username, password, index)
-        {
-
-        }
-
-        public override string ToString()
-        {
-            return FirstName + " " + LastName + ": " + Username + ", " + Password;
-        }
-    }
-
-    public class SiteAdministrator : Employee
-    {
-        public SiteAdministrator(string firstName, string lastName, string username, string password, int index) : base(firstName, lastName, username, password, index)
-        {
-
-        }
-
-        public override string ToString()
-        {
-            return FirstName + " " + LastName + ": " + Username + ", " + Password;
-        }
-    }
-
-    public class DataAdministrator : Employee
-    {
-        public DataAdministrator(string firstName, string lastName, string username, string password, int index) : base(firstName, lastName, username, password, index)
-        {
-
-        }
-
-        public override string ToString()
-        {
-            return FirstName + " " + LastName + ": " + Username + ", " + Password;
-        }
-    }
-
-    public class TenantAdministrator : Employee
-    {
-        public TenantAdministrator(string firstName, string lastName, string username, string password, int index) : base(firstName, lastName, username, password, index)
-        {
-
-        }
-
-        public override string ToString()
-        {
-            return FirstName + " " + LastName + ": " + Username + ", " + Password;
+            return FirstName + " " + LastName + ": " + ", " + Specialization + ", " + EmployeeType + ", " + EmployeeID + ", " + Index;
         }
     }
 
     public enum EmployeeSortType 
     {
-        Name,
-        Username
+        EmployeeID, Name, Specialization, EmployeeType
     }
 }

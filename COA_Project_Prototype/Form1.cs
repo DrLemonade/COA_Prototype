@@ -20,8 +20,8 @@ namespace COA_Project_Prototype
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-            Employee employee = Program.users.Find(usernameTextBox.Text, EmployeeSortType.Username);
-            if (employee.Password.Equals(passwordTextBox.Text))
+            User user = Program.users.Find(usernameTextBox.Text, UserSortType.Username);
+            if (user.Password.Equals(passwordTextBox.Text))
             {
                 Program.CurrentForm = new homepage();
                 this.Close();
