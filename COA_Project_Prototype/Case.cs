@@ -136,7 +136,7 @@ namespace COA_ProjectPrototype
 
         public void ReadCSV()
         {
-            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_case__202412091112.csv"))
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_case__202502131232.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
@@ -149,8 +149,20 @@ namespace COA_ProjectPrototype
                         string name = csv.GetField("case_name");
                         DateTime startDate = new DateTime(Int32.Parse(csv.GetField("start_date").Substring(0, 4)), Int32.Parse(csv.GetField("start_date").Substring(5, 2)), Int32.Parse(csv.GetField("start_date").Substring(8, 2)), 0, 0, 0);
                         DateTime endDate = new DateTime(Int32.Parse(csv.GetField("end_date").Substring(0, 4)), Int32.Parse(csv.GetField("end_date").Substring(5, 2)), Int32.Parse(csv.GetField("end_date").Substring(8, 2)), 0, 0, 0);
+                        int total = 0;
+                        if (Double.TryParse(csv.GetField("total_cost"), out double result))
+                            total = (int)result;
+                        int outcome = 0;
+                        if (Double.TryParse(csv.GetField("outcome"), out double result2))
+                            outcome = (int)result2;
+                        int satisfaction = 0;
+                        if (Double.TryParse(csv.GetField("satisfaction_rate"), out double result3))
+                            satisfaction = (int)result3;
+                        bool readmissions = false;
+                        if (Boolean.TryParse(csv.GetField("readmissions"), out bool result4))
+                            readmissions = result4;
 
-                        Case record = new Case(caseID, name, startDate, endDate, i);
+                        Case record = new Case(caseID, name, startDate, endDate, total, outcome, satisfaction, readmissions, i);
                         Add(record);
                     }
                 }
@@ -159,12 +171,11 @@ namespace COA_ProjectPrototype
 
         public void AppendCSV(Case @case)
         {
-            // TODO: Once Yuki fixes case data change inputs to append
-            List<object> records = new List<object> { new { case_id = @case.CaseID, hospital_id = "H1", patient_id = PatientID, start_date = @case.StartDate.ToString("yyyy-MM-dd"), end_date = @case.EndDate.ToString("yyyy-MM-dd") } };
+            List<object> records = new List<object> { new { case_id = @case.CaseID, hospital_id = "H1", patient_id = PatientID, case_name = @case.Name, start_date = @case.StartDate.ToString("yyyy-MM-dd"), end_date = @case.EndDate.ToString("yyyy-MM-dd"), mortality_flag = false, readmissions = @case.Readmissions, satisfaction_rate = @case.Satisfaction, outcome = @case.Outcome, total_cost = @case.Total } };
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
 
-            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_case__202412091112.csv", FileMode.Append))
+            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_case__202502131232.csv", FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
             {
@@ -177,94 +188,100 @@ namespace COA_ProjectPrototype
 	{
         public string CaseID { get; set; }
 		public int Total { get; private set; }
+        public int Outcome { get; private set; }
+        public int Satisfaction { get; private set; }
+        public bool Readmissions { get; set; }
         public string Name { get; set; }
 		public DateTime StartDate { get; set; }
 		public DateTime EndDate { get; set; }
-        public CostSortType SortType { get; private set; }
-        public Dictionary<string, CostArray> Costs { get; private set; }
+        public TreatmentSortType SortType { get; private set; }
+        public Dictionary<string, TreatmentArray> Treatments { get; private set; }
         public Dictionary<string, DateTime> TimesOfOperationStart { get; private set; }
         public Dictionary<string, DateTime> TimesOfOperationEnd { get; private set; }
         public int Index {  get; set; }
 
-        public Case(string caseID, string name, DateTime startDate, DateTime endDate, int index)
+        public Case(string caseID, string name, DateTime startDate, DateTime endDate, int total,  int outcome, int satisfaction, bool readmissions, int index)
         {
             CaseID = caseID;
             Name = name;
-            Total = 0;
+            Total = total;
+            Readmissions = readmissions;
+            Outcome = outcome; 
+            Satisfaction = satisfaction;
             StartDate = startDate;
             EndDate = endDate;
-            Costs = new Dictionary<string, CostArray>();
+            Treatments = new Dictionary<string, TreatmentArray>();
             TimesOfOperationStart = new Dictionary<string, DateTime>();
             TimesOfOperationEnd = new Dictionary<string, DateTime>();
             Index = index;
 
-            CostArray tempArr = new CostArray(caseID);
+            TreatmentArray tempArr = new TreatmentArray(caseID);
             tempArr.ReadCSV();
 
             for (int i = 0; i < tempArr.ElementCount; i++)
             {
-                if (Costs.TryGetValue(tempArr.GetElement(i).CostType, out CostArray arr))
+                if (Treatments.TryGetValue(tempArr.GetElement(i).TreatmentType, out TreatmentArray arr))
                     arr.Add(tempArr.GetElement(i));
                 else
                 {
-                    arr = new CostArray(CaseID);
-                    Costs.Add(tempArr.GetElement(i).CostType, arr);
+                    arr = new TreatmentArray(CaseID);
+                    Treatments.Add(tempArr.GetElement(i).TreatmentType, arr);
                     arr.Add(tempArr.GetElement(i));
                 }
             }
         }
 
-        public Cost GetCost(string location, string value) 
+        public Treatment GetCost(string location, string value) 
         {
-            CostArray costArray;
-            if(Costs.TryGetValue(location, out costArray))
+            TreatmentArray costArray;
+            if(Treatments.TryGetValue(location, out costArray))
                 return costArray.Find(value, SortType);
 
             return default;
         }
 
-		public void AddCost(string location, Cost cost)
+		public void AddCost(string location, Treatment cost)
 		{
-            CostArray costArray;
-            if (Costs.TryGetValue(location, out costArray))
+            TreatmentArray costArray;
+            if (Treatments.TryGetValue(location, out costArray))
             {
                 costArray.Add(cost);
                 costArray.Sort(SortType);
-                Costs.Remove(location);
-                Costs.Add(location, costArray);
+                Treatments.Remove(location);
+                Treatments.Add(location, costArray);
             }
             else
             {
-                costArray = new CostArray(CaseID);
+                costArray = new TreatmentArray(CaseID);
                 costArray.Add(cost);
                 costArray.Sort(SortType);
-                Costs.Add(location, costArray);
+                Treatments.Add(location, costArray);
             }
             UpdateTotal();
 		}
 
         public void RemoveCost(string location, int index)
         {
-            CostArray costArray;
-            if (Costs.TryGetValue(location, out costArray))
-                costArray.Remove(index);
+            TreatmentArray treatmentArray;
+            if (Treatments.TryGetValue(location, out treatmentArray))
+                treatmentArray.Remove(index);
             UpdateTotal(); 
         }
 
 		public void UpdateTotal()
 		{
             int total = 0;
-            foreach (KeyValuePair<string, CostArray> costArray in Costs)
+            foreach (KeyValuePair<string, TreatmentArray> costArray in Treatments)
                 for(int i = 0; i < costArray.Value.ElementCount; i++)
-                    total += costArray.Value.GetElement(i).CostAmount;
+                    total += costArray.Value.GetElement(i).Amount;
 
             Total = total;
         }
 
-        public void UpdateSortType(CostSortType type)
+        public void UpdateSortType(TreatmentSortType type)
         {
             SortType = type;
-            foreach (KeyValuePair<string, CostArray> costArray in Costs)
+            foreach (KeyValuePair<string, TreatmentArray> costArray in Treatments)
                 costArray.Value.Sort(SortType);
         }
 
@@ -274,8 +291,6 @@ namespace COA_ProjectPrototype
             int year = day / 365;
             return new DateTime(year, 1, 1).AddDays((day % 365) - 1);
         }
-
-        // TODO: Add Operation Start/End Time
 
         public int CompareTo(Case other, CaseSortType type)
 		{
@@ -296,9 +311,9 @@ namespace COA_ProjectPrototype
 
         public override string ToString()
         {
-            string str = Name + ": " + StartDate.ToString() + " - " + EndDate.ToString() + ", ¥" + Total + "\n";
-            foreach(KeyValuePair<string, CostArray> costArray in Costs)
-                str += costArray.Value.ToString() + "\n";
+            string str = Name + ": " + StartDate.ToString() + " - " + EndDate.ToString() + ", ¥" + Total + ", Readmission: " + Readmissions + ", Outcome: " + Outcome + ", Satisfaction: " + Satisfaction + "\n";
+            foreach(KeyValuePair<string, TreatmentArray> treatmentArray in Treatments)
+                str += treatmentArray.Value.ToString() + "\n";
             return str;
         }
     }

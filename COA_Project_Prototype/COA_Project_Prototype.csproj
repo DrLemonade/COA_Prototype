@@ -72,7 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Case.cs" />
-    <Compile Include="Cost.cs" />
+    <Compile Include="Treatment.cs" />
     <Compile Include="DynamicArray.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeesList.cs">

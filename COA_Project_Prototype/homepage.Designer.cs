@@ -136,7 +136,7 @@
             this.employeeButton.TabIndex = 10;
             this.employeeButton.Text = "Employees";
             this.employeeButton.UseVisualStyleBackColor = false;
-            this.employeeButton.Click += new System.EventHandler(this.button3_Click);
+            this.employeeButton.Click += new System.EventHandler(this.employeeButton_Click);
             // 
             // extraButton7
             // 

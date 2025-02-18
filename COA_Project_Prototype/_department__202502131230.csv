@@ -2,7 +2,5 @@
 D1                  ,H1                  ,Pathology
 D2                  ,H1                  ,Anesthesiology
 D3                  ,H1                  ,Surgery
-D4                  ,H1                  ,Radiology
-D5                  ,H1                  ,Neurology
-D6                  ,H1                  ,Emergency
-D7                  ,H1                  ,Pharmacy
+D4                  ,H1                  ,Neurology
+D5                  ,H1                  ,Radiology

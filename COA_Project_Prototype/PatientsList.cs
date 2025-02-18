@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace COA_Project_Prototype
 {
-    public partial class PatientsList : Form
+    public partial class PatientsList  : Form 
     {
         private PatientArray patientArray;
         public PatientsList()
@@ -21,7 +21,7 @@ namespace COA_Project_Prototype
 
         public void PatientsList_Load(object sender, EventArgs e)
         {
-            patientArray = Program.patients;
+            patientArray = Program.Patients;
 
             patientListView.Columns.Add("Last Name", 50);
             patientListView.Columns.Add("First Name", 100);
@@ -57,12 +57,11 @@ namespace COA_Project_Prototype
 
         private void patientSearchBox_TextChanged(object sender, EventArgs e)
         {
-            patientArray = (PatientArray)Program.patients.SubPatientArray(patientSearchBox.Text);
+            patientArray = Program.Patients.SubPatientArray(patientSearchBox.Text);
 
             patientListView.Items.Clear();
             for (int i = 0; i < patientArray.ElementCount; i++)
             {
-                Console.WriteLine(i);
                 Patient patient = patientArray.GetElement(i);
                 patientListView.Items.Add(new ListViewItem(new[] { patient.LastName, patient.FirstName, patient.Gender, patient.DOB.ToString(), patient.PatientID }));
             }

@@ -6,6 +6,7 @@ using System.Globalization;
 using System.IO;
 using System.Security.Policy;
 using System.Diagnostics;
+using COA_Project_Prototype;
 
 namespace COA_ProjectPrototype 
 {
@@ -121,7 +122,7 @@ namespace COA_ProjectPrototype
 
         public void ReadCSV()
         {
-            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_patient__202412232142.csv"))
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_patient__202502131232.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
@@ -150,7 +151,7 @@ namespace COA_ProjectPrototype
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
 
-            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_patient__202412232142.csv", FileMode.Append))
+            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_patient__202502131232.csv", FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
             {
@@ -207,7 +208,10 @@ namespace COA_ProjectPrototype
 
         public override string ToString()
         {
-            return FirstName + " " + LastName + ": " + Index + ", " + Gender + ", " + DOB;
+            string str = FirstName + " " + LastName + ": " + Index + ", " + Gender + ", " + DOB + "\n";
+            foreach (Case c in Cases)
+                str += c.ToString() + "\n";
+            return str;
         }
     }
     public enum PatientSortType

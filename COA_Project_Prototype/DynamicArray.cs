@@ -1,11 +1,13 @@
 using COA_Project_Prototype;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace COA_ProjectPrototype
 {
-    public abstract class DynamicArray<T>
+    public abstract class DynamicArray<T> : IEnumerable<T>
     {
         public T[] Elements { get; set; }
         public int ElementCount { get; private set; }
@@ -65,6 +67,17 @@ namespace COA_ProjectPrototype
             }
 
             return result;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for(int i = 0; i < ElementCount; i++)
+                yield return Elements[i];
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

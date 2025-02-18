@@ -10,23 +10,28 @@ namespace COA_Project_Prototype
     internal static class Program
     {
 
-        public static UserArray users { get; set; }
-        public static PatientArray patients { get; set; }
-        public static EmployeeArray employees { get; set; }
+        public static UserArray Users { get; set; }
+        public static PatientArray Patients { get; set; }
+        public static EmployeeArray Employees { get; set; }
         public static Form CurrentForm { get; set; }
 
         [STAThread]
         static void Main()
         {
-            users = new UserArray();
-            patients = new PatientArray();
-            employees = new EmployeeArray();
-            users.ReadCSV();
-            patients.ReadCSV();
-            employees.ReadCSV();
+            Users = new UserArray();
+            Patients = new PatientArray();
+            Employees = new EmployeeArray();
+            Users.ReadCSV();
+            Patients.ReadCSV();
+            Employees.ReadCSV();
+
+            foreach (Patient patient in Patients)
+                Console.WriteLine(patient.ToString());
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // loops running new forms. current form is set to another form in form classes
             CurrentForm = new Form1();
             while (true)
             {

@@ -72,7 +72,7 @@ namespace COA_ProjectPrototype {
 
         public void ReadCSV()
         {
-            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_user__202412232141.csv"))
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_user__202502131230.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
@@ -127,7 +127,7 @@ namespace COA_ProjectPrototype {
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
 
-            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_user__202412232141.csv", FileMode.Append))
+            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_user__202502131230.csv", FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
             {

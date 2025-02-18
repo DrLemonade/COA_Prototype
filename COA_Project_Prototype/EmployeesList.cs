@@ -22,34 +22,34 @@ namespace COA_Project_Prototype
         private void sortByComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (sortByComboBox.SelectedIndex == 0)
-                Program.employees.Sort(EmployeeSortType.Name);
+                Program.Employees.Sort(EmployeeSortType.Name);
             if (sortByComboBox.SelectedIndex == 1)
-                Program.employees.Sort(EmployeeSortType.Specialization);
+                Program.Employees.Sort(EmployeeSortType.Specialization);
             if (sortByComboBox.SelectedIndex == 2)
-                Program.employees.Sort(EmployeeSortType.EmployeeType);
+                Program.Employees.Sort(EmployeeSortType.EmployeeType);
             if (sortByComboBox.SelectedIndex == 3)
-                Program.employees.Sort(EmployeeSortType.EmployeeID);
+                Program.Employees.Sort(EmployeeSortType.EmployeeID);
 
             employeeListView.Items.Clear();
-            for (int i = 0; i < Program.employees.ElementCount; i++)
+            for (int i = 0; i < Program.Employees.ElementCount; i++)
             {
-                Employee employee = Program.employees.GetElement(i);
+                Employee employee = Program.Employees.GetElement(i);
                 employeeListView.Items.Add(new ListViewItem(new[] { employee.LastName, employee.FirstName, employee.Specialization, employee.EmployeeType, employee.EmployeeID }));
             }
         }
 
         public void EmployeesList_Load(object sender, EventArgs e)
         {
-            employeeArray = Program.employees;
+            employeeArray = Program.Employees;
             employeeListView.Columns.Add("Last Name", 50);
             employeeListView.Columns.Add("First Name", 100);
             employeeListView.Columns.Add("Specialization", 150);
             employeeListView.Columns.Add("Employee Type", 200);
             employeeListView.Columns.Add("Staff ID", 250);
 
-            for (int i = 0; i < Program.employees.ElementCount; i++)
+            for (int i = 0; i < Program.Employees.ElementCount; i++)
             {
-                Employee employee = Program.employees.GetElement(i);
+                Employee employee = Program.Employees.GetElement(i);
                 employeeListView.Items.Add(new ListViewItem(new[] { employee.LastName, employee.FirstName, employee.Specialization, employee.EmployeeType, employee.EmployeeID }));
             }
 
@@ -58,7 +58,7 @@ namespace COA_Project_Prototype
 
         private void employeeTextBox_TextChanged(object sender, EventArgs e)
         {
-            employeeArray = Program.employees.SubEmployeeArray(employeeTextBox.Text);
+            employeeArray = Program.Employees.SubEmployeeArray(employeeTextBox.Text);
 
             employeeListView.Items.Clear();
             for (int i = 0; i < employeeArray.ElementCount; i++)
