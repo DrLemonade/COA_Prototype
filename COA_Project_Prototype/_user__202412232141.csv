@@ -1,0 +1,6 @@
+"user_id","hospital_id","user_first_name","user_last_name","user_type","password"
+U1                  ,H1                  ,Alice,Smith,PM,password123
+U2                  ,H1                  ,Bob,Johnson,PM,securepass456
+U3                  ,H1                  ,Carol,Williams,PM,mypassword789
+U4                  ,H1                  ,David,Brown,PM,pass2023
+U5                  ,H1                  ,Eve,Jones,PM,admin!pass

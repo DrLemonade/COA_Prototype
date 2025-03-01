@@ -1,0 +1,51 @@
+"staff_id","hospital_id","department_id","staff_first_name","staff_last_name","specialization","employee_type"
+S1                  ,H1                  ,D6                  ,John,Doe,Emergency Medicine,Doctor
+S2                  ,H1                  ,D6                  ,Emily,Smith,Emergency Medicine,Nurse
+S3                  ,H1                  ,D6                  ,Chris,Johnson,Trauma Care,Technician
+S4                  ,H1                  ,D6                  ,Anna,Davis,Emergency Medicine,Doctor
+S5                  ,H1                  ,D6                  ,Matthew,Brown,Emergency Care,Nurse
+S6                  ,H1                  ,D6                  ,Sophia,Wilson,Emergency Response,Technician
+S7                  ,H1                  ,D6                  ,Ethan,Clark,Emergency Care,Doctor
+S8                  ,H1                  ,D6                  ,Chloe,Robinson,Trauma Nursing,Nurse
+S9                  ,H1                  ,D6                  ,Lucas,Garcia,Emergency Transport,Technician
+S10                 ,H1                  ,D6                  ,Isabella,Martinez,Emergency Medicine,Doctor
+S11                 ,H1                  ,D6                  ,Liam,Taylor,Trauma Response,Technician
+S12                 ,H1                  ,D6                  ,Sophia,Martinez,Emergency Nursing,Nurse
+S13                 ,H1                  ,D3                  ,Laura,Taylor,General Surgery,Surgeon
+S14                 ,H1                  ,D3                  ,James,Harris,Orthopedic Surgery,Surgeon
+S15                 ,H1                  ,D3                  ,Megan,Clark,Surgical Assistance,Nurse
+S16                 ,H1                  ,D3                  ,Michael,Lewis,Cardiothoracic Surgery,Surgeon
+S17                 ,H1                  ,D3                  ,Victoria,Young,Surgical Assistance,Technician
+S18                 ,H1                  ,D3                  ,Daniel,Adams,Surgical Care,Nurse
+S19                 ,H1                  ,D3                  ,Grace,Allen,Pediatric Surgery,Surgeon
+S20                 ,H1                  ,D3                  ,Liam,Baker,General Surgery,Technician
+S21                 ,H1                  ,D3                  ,Amelia,Gonzalez,Surgical Nursing,Nurse
+S22                 ,H1                  ,D3                  ,Henry,Flores,Trauma Surgery,Surgeon
+S23                 ,H1                  ,D3                  ,Olivia,King,Vascular Surgery,Surgeon
+S24                 ,H1                  ,D3                  ,Ethan,Brown,Surgical Coordination,Technician
+S25                 ,H1                  ,D3                  ,Sophia,Nguyen,Surgical Prep,Technician
+S26                 ,H1                  ,D3                  ,Noah,White,General Surgery,Technician
+S27                 ,H1                  ,D3                  ,Emma,Davis,Surgical Assistance,Nurse
+S28                 ,H1                  ,D2                  ,Mark,Taylor,Anesthesiology,Doctor
+S29                 ,H1                  ,D2                  ,Sophia,Anderson,Anesthesia Assistance,Nurse
+S30                 ,H1                  ,D2                  ,David,White,Pain Management,Technician
+S31                 ,H1                  ,D2                  ,Grace,Thompson,Anesthesiology,Doctor
+S32                 ,H1                  ,D2                  ,James,Garcia,Pain Control,Technician
+S33                 ,H1                  ,D2                  ,Ella,Harris,Surgical Anesthesia,Nurse
+S34                 ,H1                  ,D4                  ,Robert,Martinez,Radiology,Doctor
+S35                 ,H1                  ,D4                  ,Linda,Robinson,MRI Imaging,Technician
+S36                 ,H1                  ,D4                  ,Ethan,Walker,Ultrasound Imaging,Technician
+S37                 ,H1                  ,D4                  ,Emily,Brown,CT Scanning,Technician
+S38                 ,H1                  ,D4                  ,Benjamin,Davis,Radiology Analysis,Doctor
+S39                 ,H1                  ,D4                  ,Sophia,Hill,X-ray Imaging,Technician
+S40                 ,H1                  ,D4                  ,Ella,Green,Radiology Support,Technician
+S41                 ,H1                  ,D1                  ,Sarah,Hall,Pathology,Doctor
+S42                 ,H1                  ,D1                  ,Daniel,Allen,Lab Analysis,Technician
+S43                 ,H1                  ,D1                  ,Jessica,Thompson,Microbiology,Technician
+S44                 ,H1                  ,D1                  ,Lucas,Scott,Biopsy Processing,Technician
+S45                 ,H1                  ,D1                  ,Chloe,Evans,Cytology,Technician
+S46                 ,H1                  ,D7                  ,Victoria,Clark,Pharmacy,Pharmacist
+S47                 ,H1                  ,D7                  ,Andrew,Lewis,Pharmaceutical Assistance,Technician
+S48                 ,H1                  ,D7                  ,Sophia,Nguyen,Drug Preparation,Technician
+S49                 ,H1                  ,D5                  ,Victor,Evans,Neurology,Doctor
+S50                 ,H1                  ,D5                  ,Caroline,Scott,Neurology Assistance,Nurse
