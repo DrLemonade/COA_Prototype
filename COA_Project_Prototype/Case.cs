@@ -312,7 +312,7 @@ namespace COA_ProjectPrototype
         public override string ToString()
         {
             string str = Name + ": " + StartDate.ToString() + " - " + EndDate.ToString() + ", ¥" + Total + ", Readmission: " + Readmissions + ", Outcome: " + Outcome + ", Satisfaction: " + Satisfaction + "\n";
-            foreach(KeyValuePair<string, TreatmentArray> treatmentArray in Treatments)
+            foreach (KeyValuePair<string, TreatmentArray> treatmentArray in Treatments)
                 str += treatmentArray.Value.ToString() + "\n";
             return str;
         }

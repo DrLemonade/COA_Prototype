@@ -229,7 +229,7 @@ namespace COA_Project_Prototype
 
         public override string ToString()
         {
-            return TreatmentID + ": " + TreatmentType + ", outcome: " + Outcome + ", ¥" + Amount + ", " + StartDate.ToString() + ", " + EndDate.ToString();
+            return  TreatmentID + ": " + TreatmentType + ", outcome: " + Outcome + ", ¥" + Amount + ", " + StartDate.ToString() + ", " + EndDate.ToString();
         }
     }
 

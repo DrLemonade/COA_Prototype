@@ -3,19 +3,43 @@
   "WorkspaceRootPath": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\altav\\onedrive\\documents\\github\\coa_prototype\\coa_project_prototype\\calendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:calendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\altav\\onedrive\\documents\\github\\coa_prototype\\coa_project_prototype\\calendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:calendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\case.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:case.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\altav\\onedrive\\documents\\github\\coa_prototype\\coa_project_prototype\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\patientslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:patientslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\altav\\onedrive\\documents\\github\\coa_prototype\\coa_project_prototype\\patientslist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\treatment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:treatment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\patientslist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:patientslist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,7 +47,7 @@
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:employeeslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\altav\\onedrive\\documents\\github\\coa_prototype\\coa_project_prototype\\employeeslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\employeeslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:employeeslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -31,27 +55,15 @@
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:patientslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\altav\\onedrive\\documents\\github\\coa_prototype\\coa_project_prototype\\homepage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\homepage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:homepage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\case.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:case.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\altav\\onedrive\\documents\\github\\coa_prototype\\coa_project_prototype\\treatment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:treatment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|c:\\users\\altav\\onedrive\\documents\\github\\coa_prototype\\coa_project_prototype\\dynamicarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\dynamicarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:dynamicarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -61,10 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\employeeslist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:employeeslist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{86A1A7E1-C37A-4FB9-B49C-5DE1B6C2A82E}|COA_Project_Prototype.csproj|C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -78,11 +86,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
+              "Title": "Calendar.cs",
+              "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Calendar.cs",
+              "RelativeDocumentMoniker": "Calendar.cs",
+              "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Calendar.cs",
+              "RelativeToolTip": "Calendar.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAASwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T06:39:50.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Calendar.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Calendar.cs",
+              "RelativeDocumentMoniker": "Calendar.cs",
+              "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Calendar.cs [Design]",
+              "RelativeToolTip": "Calendar.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T06:37:22.475Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "homepage.Designer.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\homepage.Designer.cs",
               "RelativeDocumentMoniker": "homepage.Designer.cs",
@@ -90,12 +123,11 @@
               "RelativeToolTip": "homepage.Designer.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAAqwH8AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T04:59:48.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T04:59:48.938Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "DynamicArray.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\DynamicArray.cs",
               "RelativeDocumentMoniker": "DynamicArray.cs",
@@ -103,12 +135,11 @@
               "RelativeToolTip": "DynamicArray.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAuwE8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T04:39:52.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T04:39:52.716Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "EmployeesList.Designer.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\EmployeesList.Designer.cs",
               "RelativeDocumentMoniker": "EmployeesList.Designer.cs",
@@ -116,12 +147,11 @@
               "RelativeToolTip": "EmployeesList.Designer.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAowE8AAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T19:58:24.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T19:58:24.834Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "EmployeesList.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\EmployeesList.cs",
               "RelativeDocumentMoniker": "EmployeesList.cs",
@@ -129,37 +159,35 @@
               "RelativeToolTip": "EmployeesList.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T19:57:59.79Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T19:57:59.79Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "EmployeesList.cs [Design]",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\EmployeesList.cs",
               "RelativeDocumentMoniker": "EmployeesList.cs",
               "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\EmployeesList.cs [Design]",
               "RelativeToolTip": "EmployeesList.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T19:56:39.718Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-02-03T19:56:39.718Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "PatientsList.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\PatientsList.cs",
               "RelativeDocumentMoniker": "PatientsList.cs",
               "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\PatientsList.cs",
               "RelativeToolTip": "PatientsList.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAgwBYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-26T08:03:17.221Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "PatientsList.Designer.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\PatientsList.Designer.cs",
               "RelativeDocumentMoniker": "PatientsList.Designer.cs",
@@ -172,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "PatientsList.cs [Design]",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\PatientsList.cs",
               "RelativeDocumentMoniker": "PatientsList.cs",
@@ -184,45 +212,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 5,
               "Title": "Treatment.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Treatment.cs",
               "RelativeDocumentMoniker": "Treatment.cs",
               "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Treatment.cs",
               "RelativeToolTip": "Treatment.cs",
-              "ViewState": "AgIAAJIAAAAAAAAAAAAmwKIAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAANMAAAAAAAAAAAAAAOcAAACcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-26T06:20:52.619Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "Case.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Case.cs",
               "RelativeDocumentMoniker": "Case.cs",
               "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Case.cs",
               "RelativeToolTip": "Case.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAQwJ0AAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAAwDsBAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-26T06:20:15.328Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "homepage.cs [Design]",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\homepage.cs",
               "RelativeDocumentMoniker": "homepage.cs",
               "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\homepage.cs [Design]",
               "RelativeToolTip": "homepage.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T05:59:10.593Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-30T05:59:10.593Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "homepage.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\homepage.cs",
               "RelativeDocumentMoniker": "homepage.cs",
@@ -230,12 +257,11 @@
               "RelativeToolTip": "homepage.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T06:01:07.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-30T06:01:07.096Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\User.cs",
               "RelativeDocumentMoniker": "User.cs",
@@ -243,41 +269,42 @@
               "RelativeToolTip": "User.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAcwIEAAACGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T00:29:49.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T00:29:49.665Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 6,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T21:22:11.83Z"
+              "WhenOpened": "2024-10-25T21:22:11.83Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T00:20:22.191Z"
+              "WhenOpened": "2024-11-08T00:20:22.191Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Patient.cs",
               "DocumentMoniker": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Patient.cs",
               "RelativeDocumentMoniker": "Patient.cs",
               "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Patient.cs",
               "RelativeToolTip": "Patient.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAcwNIAAABlAAAAAAAAAA==",
+              "ViewState": "AgIAALsAAAAAAAAAAAAIwKIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T00:29:49.77Z",
               "EditorCaption": ""
@@ -290,7 +317,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\altav\\OneDrive\\Documents\\GitHub\\COA_Prototype\\COA_Project_Prototype\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAkwC8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T22:02:32.046Z",
               "EditorCaption": ""
