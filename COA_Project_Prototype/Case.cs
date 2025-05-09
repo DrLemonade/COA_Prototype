@@ -136,7 +136,7 @@ namespace COA_ProjectPrototype
 
         public void ReadCSV()
         {
-            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_case__202502131232.csv"))
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/cases_coa.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
@@ -149,9 +149,6 @@ namespace COA_ProjectPrototype
                         string name = csv.GetField("case_name");
                         DateTime startDate = new DateTime(Int32.Parse(csv.GetField("start_date").Substring(0, 4)), Int32.Parse(csv.GetField("start_date").Substring(5, 2)), Int32.Parse(csv.GetField("start_date").Substring(8, 2)), 0, 0, 0);
                         DateTime endDate = new DateTime(Int32.Parse(csv.GetField("end_date").Substring(0, 4)), Int32.Parse(csv.GetField("end_date").Substring(5, 2)), Int32.Parse(csv.GetField("end_date").Substring(8, 2)), 0, 0, 0);
-                        int total = 0;
-                        if (Double.TryParse(csv.GetField("total_cost"), out double result))
-                            total = (int)result;
                         int outcome = 0;
                         if (Double.TryParse(csv.GetField("outcome"), out double result2))
                             outcome = (int)result2;
@@ -162,7 +159,7 @@ namespace COA_ProjectPrototype
                         if (Boolean.TryParse(csv.GetField("readmissions"), out bool result4))
                             readmissions = result4;
 
-                        Case record = new Case(caseID, name, startDate, endDate, total, outcome, satisfaction, readmissions, i);
+                        Case record = new Case(caseID, name, startDate, endDate, outcome, satisfaction, readmissions, i);
                         Add(record);
                     }
                 }
@@ -175,7 +172,7 @@ namespace COA_ProjectPrototype
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
 
-            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_case__202502131232.csv", FileMode.Append))
+            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/cases_coa.csv", FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
             {
@@ -200,11 +197,11 @@ namespace COA_ProjectPrototype
         public Dictionary<string, DateTime> TimesOfOperationEnd { get; private set; }
         public int Index {  get; set; }
 
-        public Case(string caseID, string name, DateTime startDate, DateTime endDate, int total,  int outcome, int satisfaction, bool readmissions, int index)
+        public Case(string caseID, string name, DateTime startDate, DateTime endDate, int outcome, int satisfaction, bool readmissions, int index)
         {
             CaseID = caseID;
             Name = name;
-            Total = total;
+            Total = 0;
             Readmissions = readmissions;
             Outcome = outcome; 
             Satisfaction = satisfaction;
@@ -229,6 +226,7 @@ namespace COA_ProjectPrototype
                     arr.Add(tempArr.GetElement(i));
                 }
             }
+            UpdateTotal();
         }
 
         public Treatment GetCost(string location, string value) 

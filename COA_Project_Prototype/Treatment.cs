@@ -51,7 +51,7 @@ namespace COA_Project_Prototype
 
         /**
          * Binary search based on a string value.
-         * CostSortType must be treatment type or id
+         * TreatmentSortType must be treatment type or id or staff id
          */
         public Treatment Find(string value, TreatmentSortType type)
         {
@@ -66,6 +66,8 @@ namespace COA_Project_Prototype
                     string compareValue = "";
                     if (type == TreatmentSortType.TreatmentType)
                         compareValue = Elements[mid].TreatmentType;
+                    if (type == TreatmentSortType.EmployeeID)
+                        compareValue = Elements[mid].EmployeeID;
                     if (type == TreatmentSortType.TreatmentID)
                         compareValue = Elements[mid].TreatmentID;
 
@@ -82,7 +84,7 @@ namespace COA_Project_Prototype
 
         /**
          * Binary search based on a int value.
-         * CostSortType must be amount or outcome
+         * TreatmentSortType must be amount or outcome
          */
         public Treatment Find(int value, TreatmentSortType type)
         {
@@ -113,7 +115,7 @@ namespace COA_Project_Prototype
 
         /**
          * Binary search based on a DateTime value.
-         * CostSortType must be start date or end date
+         * TreatmentSortType must be start date or end date
          */
         public Treatment Find(DateTime value, TreatmentSortType type)
         {
@@ -144,7 +146,7 @@ namespace COA_Project_Prototype
 
         public void ReadCSV()
         {
-            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_Treatment__202502131233.csv"))
+            using (var reader = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/treatment_coa.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
@@ -154,20 +156,18 @@ namespace COA_Project_Prototype
                     if (csv.GetField("case_id") == CaseID)
                     {
                         string treatmentID = csv.GetField("treatment_id");
+                        string staffID = csv.GetField("staff_id");
                         string treatmentType = csv.GetField("treatment_type");
                         int outcome = 0;
                         if (Double.TryParse(csv.GetField("outcome"), out double result1))
                             outcome = (int)result1;
-                        int amount = 0;
-                        if (Double.TryParse(csv.GetField("treatment_cost"), out double result2))
-                            amount = (int)result2;
 
                         DateTime startDate;
                         startDate = new DateTime(Int32.Parse(csv.GetField("start_date").Substring(0, 4)), Int32.Parse(csv.GetField("start_date").Substring(5, 2)), Int32.Parse(csv.GetField("start_date").Substring(8, 2)), 0, 0, 0);
                         DateTime endDate;
                         endDate = new DateTime(Int32.Parse(csv.GetField("end_date").Substring(0, 4)), Int32.Parse(csv.GetField("end_date").Substring(5, 2)), Int32.Parse(csv.GetField("end_date").Substring(8, 2)), 0, 0, 0);
 
-                        Treatment record = new Treatment(treatmentType, outcome, amount, startDate, startDate, treatmentID, i);
+                        Treatment record = new Treatment(treatmentType, outcome, startDate, startDate, staffID, treatmentID, i);
                         Add(record);
                     }
                 }
@@ -176,11 +176,11 @@ namespace COA_Project_Prototype
 
         public void AppendCSV(Treatment treatment)
         {
-            List<object> records = new List<object> { new { treatment_id = treatment.TreatmentID, hospital_id = "H1", case_id = CaseID, treatment_type = treatment.TreatmentType, start_date = treatment.StartDate.ToString("yyyy-MM-dd"), end_date = treatment.EndDate.ToString("yyyy-MM-dd"), mortality_flag = false, outcome = treatment.Outcome, treatment_cost = treatment.Amount } };
+            List<object> records = new List<object> { new { treatment_id = treatment.TreatmentID, case_id = CaseID, treatment_type = treatment.TreatmentType, start_date = treatment.StartDate.ToString("yyyy-MM-dd"), end_date = treatment.EndDate.ToString("yyyy-MM-dd"), mortality_flag = false, outcome = treatment.Outcome, treatment_cost = treatment.Amount } };
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false, };
 
-            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/_Treatment__202502131233.csv", FileMode.Append))
+            using (var stream = File.Open(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/treatment_coa.csv", FileMode.Append))
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
             {
@@ -196,24 +196,55 @@ namespace COA_Project_Prototype
         public int Amount { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public string EmployeeID { get; set; }
         public string TreatmentID { get; set; }
         public int Index { get; set; }
 
-        public Treatment(string treatmentType, int outcome, int amount, DateTime startDate, DateTime endDate, string treatmentID, int index)
+        public Dictionary<string, FinanceArray> Finances { get; private set; }
+
+        public Treatment(string treatmentType, int outcome, DateTime startDate, DateTime endDate, string employeeID, string treatmentID, int index)
         {
             TreatmentType = treatmentType;
             Outcome = outcome;
-            Amount = amount;
             StartDate = startDate;
             EndDate = endDate;
+            EmployeeID = employeeID;
             TreatmentID = treatmentID;
             Index = index;
+            Finances = new Dictionary<string, FinanceArray>();
+            FinanceArray tempArr = new FinanceArray(treatmentID);
+            tempArr.ReadCSV();
+
+            for (int i = 0; i < tempArr.ElementCount; i++)
+            {
+                if (Finances.TryGetValue(tempArr.GetElement(i).FinanceName, out FinanceArray arr))
+                    arr.Add(tempArr.GetElement(i));
+                else
+                {
+                    arr = new FinanceArray(TreatmentID);
+                    Finances.Add(tempArr.GetElement(i).FinanceName, arr);
+                    arr.Add(tempArr.GetElement(i));
+                }
+            }
+            UpdateTotal();
+        }
+
+        public void UpdateTotal()
+        {
+            int amount = 0;
+            foreach (KeyValuePair<string, FinanceArray> financeArray in Finances)
+                for (int i = 0; i < financeArray.Value.ElementCount; i++)
+                    amount += financeArray.Value.GetElement(i).Cost;
+
+            Amount = amount;
         }
 
         public int CompareTo(Treatment other, TreatmentSortType type)
         {
             if (type == TreatmentSortType.TreatmentID)
                 return String.Compare(TreatmentID, other.TreatmentID, comparisonType: StringComparison.OrdinalIgnoreCase);
+            if (type == TreatmentSortType.EmployeeID)
+                return String.Compare(EmployeeID, other.EmployeeID, comparisonType: StringComparison.OrdinalIgnoreCase);
             if (type == TreatmentSortType.TreatmentType)
                 return String.Compare(TreatmentType, other.TreatmentType, comparisonType: StringComparison.OrdinalIgnoreCase);
             if (type == TreatmentSortType.Outcome && Outcome > other.Outcome)
@@ -229,13 +260,14 @@ namespace COA_Project_Prototype
 
         public override string ToString()
         {
-            return  TreatmentID + ": " + TreatmentType + ", outcome: " + Outcome + ", ¥" + Amount + ", " + StartDate.ToString() + ", " + EndDate.ToString();
+            return  TreatmentID + ": " + TreatmentType + ", primary physician: " + EmployeeID + ", outcome: " + Outcome + ", ¥" + Amount + ", " + StartDate.ToString() + ", " + EndDate.ToString();
         }
     }
 
     public enum TreatmentSortType
     {
         TreatmentID,
+        EmployeeID,
         TreatmentType,
         Outcome,
         Amount,

@@ -1,0 +1,17 @@
+"organization_id","hospital_id","organization_name"
+1,1,Emergency Department Costs
+2,1,Operating Room Costs
+3,1,Anesthesiology Costs
+4,1,Post-Anesthesia Care Unit (PACU) Costs
+5,1,Surgical ICU Costs
+6,1,Intermediate Care Unit (IMCU) Costs
+7,1,General Floor Unit Costs
+8,1,Imaging Costs
+9,1,Laboratory Costs
+10,1,Pharmacy Costs
+11,1,Cardiac Monitoring Costs
+12,1,Respiratory Therapy Costs
+13,1,Blood Product Costs
+14,1,Pulmonary Lab Costs
+15,1,General Inventory Costs
+16,1,Rehabilitation Costs

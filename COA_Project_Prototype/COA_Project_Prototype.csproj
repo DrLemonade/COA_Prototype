@@ -78,6 +78,7 @@
     <Compile Include="Calendar.Designer.cs">
       <DependentUpon>Calendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Finance.cs" />
     <Compile Include="Treatment.cs" />
     <Compile Include="DynamicArray.cs" />
     <Compile Include="Employee.cs" />

@@ -1,0 +1,41 @@
+"staff_id","hospital_id","department_id","staff_first_name","staff_last_name","specialization","employee_type"
+1,1,1,James,Anderson,Pathologist,Doctor
+2,1,1,Hannah,Mitchell,Lab Technician,Technician
+3,1,5,Evan,Ward,Radiologist,Doctor
+4,1,5,Jessica,Brooks,Imaging Technician,Technician
+5,1,1,Michael,Harris,Pathologist,Doctor
+6,1,1,Rachel,Parker,Lab Technician,Technician
+7,1,5,Christopher,Evans,Radiologist,Doctor
+8,1,5,Olivia,Jenkins,Imaging Technician,Technician
+9,1,1,Jonathan,Scott,Pathologist,Doctor
+10,1,1,Elizabeth,Garcia,Lab Technician,Technician
+11,1,3,John,Walker,General Surgeon,Doctor
+12,1,3,Megan,Gonzalez,Surgical Nurse,Nurse
+13,1,2,Daniel,Clark,Anesthesiologist,Doctor
+14,1,2,Emily,Young,Nurse Anesthetist,Nurse
+15,1,3,Alexander,Hernandez,General Surgeon,Doctor
+16,1,3,Madison,Lopez,Surgical Assistant,Technician
+17,1,3,Gabriel,Hill,General Surgeon,Doctor
+18,1,3,Samantha,Scott,Surgical Nurse,Nurse
+19,1,4,Aaron,Rivera,Critical Care Physician,Doctor
+20,1,4,Katherine,Cooper,Neurologist,Doctor
+21,1,4,Jordan,Gray,Critical Care Physician,Doctor
+22,1,4,Alyssa,Ramirez,Neurologist,Doctor
+23,1,3,Isaac,Nelson,ICU Nurse,Nurse
+24,1,3,Sophia,Lee,ICU Nurse,Nurse
+25,1,3,Ethan,Carter,ICU Nurse,Nurse
+26,1,3,Isabella,Martinez,ICU Nurse,Nurse
+27,1,4,Jose,Carter,General Ward Nurse,Nurse
+28,1,4,Brianna,Howard,Physical Therapist,Therapist
+29,1,4,Kevin,Bailey,General Ward Nurse,Nurse
+30,1,4,Amber,Watson,Physical Therapist,Therapist
+31,1,1,David,Hughes,Lab Technician,Technician
+32,1,1,Jennifer,Torres,Pathologist,Doctor
+33,1,5,Brandon,Murphy,Radiologist,Doctor
+34,1,5,Melissa,Bell,Imaging Technician,Technician
+35,1,2,Zachary,Reed,Anesthesiologist,Doctor
+36,1,2,Lauren,Cooper,Nurse Anesthetist,Nurse
+37,1,3,Samuel,Baker,General Surgeon,Doctor
+38,1,3,Natalie,Evans,Surgical Assistant,Technician
+39,1,3,Andrew,Wright,Surgical Nurse,Nurse
+40,1,4,Jessica,Diaz,Critical Care Physician,Doctor
